@@ -25281,7 +25281,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","../movie-card/movie-card":"k66FR","../movie-view/movie-view":"6gduu","axios":"2KoM4","../login-view/login-view":"8BhNH","../registration-view/registration-view":"9mlOn"}],"azE2E":[function(require,module,exports) {
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","../movie-card/movie-card":"k66FR","../movie-view/movie-view":"6gduu","axios":"2KoM4","../registration-view/registration-view":"9mlOn","../login-view/login-view":"8BhNH"}],"azE2E":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -29611,138 +29611,7 @@ var utils = require('./../utils');
     return utils.isObject(payload) && payload.isAxiosError === true;
 };
 
-},{"./../utils":"831QG"}],"8BhNH":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$3384 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$3384.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "LoginView", ()=>LoginView
-);
-var _jsxRuntime = require("react/jsx-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _s = $RefreshSig$();
-function LoginView(props) {
-    _s();
-    const [username, setUsername] = _react.useState('');
-    const [password, setPassword] = _react.useState('');
-    const handleSubmit = (e)=>{
-        e.preventDefault();
-        console.log(username, password);
-        props.onLoggedIn(username);
-    };
-    const handleRegistration = (e)=>{
-        e.preventDefault();
-        props.onRegister(true);
-    };
-    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
-        __source: {
-            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-            lineNumber: 19
-        },
-        __self: this,
-        children: [
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 20
-                },
-                __self: this,
-                children: [
-                    "Username:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "text",
-                        value: username,
-                        onChange: (e)=>setUsername(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                            lineNumber: 22
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("br", {
-                __source: {
-                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 23
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
-                __source: {
-                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 24
-                },
-                __self: this,
-                children: [
-                    "Password:",
-                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
-                        type: "password",
-                        value: password,
-                        onChange: (e)=>setPassword(e.target.value)
-                        ,
-                        __source: {
-                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                            lineNumber: 26
-                        },
-                        __self: this
-                    })
-                ]
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("br", {
-                __source: {
-                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 27
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                type: "submit",
-                onClick: handleSubmit,
-                __source: {
-                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 28
-                },
-                __self: this,
-                children: "Already User-LogIn Here"
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("br", {
-                __source: {
-                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 28
-                },
-                __self: this
-            }),
-            /*#__PURE__*/ _jsxRuntime.jsx("button", {
-                type: "submit",
-                onClick: handleRegistration,
-                __source: {
-                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 29
-                },
-                __self: this,
-                children: "New User-Register Here"
-            })
-        ]
-    }));
-}
-_s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
-_c = LoginView;
-var _c;
-$RefreshReg$(_c, "LoginView");
-
-  $parcel$ReactRefreshHelpers$3384.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC"}],"9mlOn":[function(require,module,exports) {
+},{"./../utils":"831QG"}],"9mlOn":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$a9d2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -29906,6 +29775,137 @@ var _c;
 $RefreshReg$(_c, "RegistrationView");
 
   $parcel$ReactRefreshHelpers$a9d2.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC"}],"8BhNH":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$3384 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$3384.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "LoginView", ()=>LoginView
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+function LoginView(props) {
+    _s();
+    const [username, setUsername] = _react.useState('');
+    const [password, setPassword] = _react.useState('');
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log(username, password);
+        props.onLoggedIn(username);
+    };
+    const handleRegistration = (e)=>{
+        e.preventDefault();
+        props.onRegister(true);
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
+        __source: {
+            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+            lineNumber: 19
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+                    lineNumber: 20
+                },
+                __self: this,
+                children: [
+                    "Username:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "text",
+                        value: username,
+                        onChange: (e)=>setUsername(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+                            lineNumber: 22
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+                    lineNumber: 23
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("label", {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+                    lineNumber: 24
+                },
+                __self: this,
+                children: [
+                    "Password:",
+                    /*#__PURE__*/ _jsxRuntime.jsx("input", {
+                        type: "password",
+                        value: password,
+                        onChange: (e)=>setPassword(e.target.value)
+                        ,
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+                            lineNumber: 26
+                        },
+                        __self: this
+                    })
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+                    lineNumber: 27
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                type: "submit",
+                onClick: handleSubmit,
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+                    lineNumber: 28
+                },
+                __self: this,
+                children: "Already User-LogIn Here"
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("br", {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+                    lineNumber: 28
+                },
+                __self: this
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx("button", {
+                type: "submit",
+                onClick: handleRegistration,
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
+                    lineNumber: 29
+                },
+                __self: this,
+                children: "New User-Register Here"
+            })
+        ]
+    }));
+}
+_s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
+_c = LoginView;
+var _c;
+$RefreshReg$(_c, "LoginView");
+
+  $parcel$ReactRefreshHelpers$3384.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
