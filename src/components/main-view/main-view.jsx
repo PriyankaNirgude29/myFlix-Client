@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -63,6 +64,7 @@ render() {
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
+      <Container fluid="md">
       <Row className="main-view justify-content-md-center">
       {selectedMovie
         ? (
@@ -77,7 +79,7 @@ render() {
         ))
       }
     </Row>
-     
+    </Container>
         );
     }
 
