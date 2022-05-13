@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { ListGroup, Button, Row, Col, Image} from 'react-bootstrap';
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
 
@@ -21,29 +23,30 @@ componentWillUnmount() {
     const { movie, onBackClick } = this.props;
 
     return (
-      <div className="movie-view">
-        <div className="movie-poster">
-          <img src={movie.ImagePath} crossOrigin="true" width="300" height="500" />
-        </div>
-        <div className="movie-title">
-          <span className="label">Title: </span>
-          <span className="value">{movie.Title}</span>
-        </div>
-        <div className="movie-description">
-          <span className="label">Description: </span>
-          <span className="value">{movie.Description}</span>
-        </div>
-        <div className="movie-genre">
-          <span className="label">Genre: </span>
-          <span className="value">{movie.Genre.Name}</span>
-        </div>
-        <div className="movie-title">
-          <span className="label">Director: </span>
-          <span className="value">{movie.Director.Name}</span>
-        </div>
-        <button onClick={() => { onBackClick(null); }}>Back</button>
+      <Row className="w-100 justify-content-around mx-auto">
+        <Col sm={6}> 
+        	<Image className="poster" src={movie.ImagePath} crossOrigin="anonymous" width="500" height="600" onClick={() => onMovieClick(movie)}/>
+        </Col>
 
-      </div>
+        <Col sm={5}>   
+			<ListGroup>
+				<ListGroup.Item><h3>{movie.Title}</h3></ListGroup.Item>
+        <ListGroup.Item>Description: {movie.Description}</ListGroup.Item>
+				<ListGroup.Item>Genre: {movie.Genre.Name}</ListGroup.Item>
+        <ListGroup.Item>Director: {movie.Director.Name}</ListGroup.Item>
+			
+				<div>
+					<ListGroup.Item className="w-100 d-flex justify-content-between">
+						<Button variant="link text-muted">Add to favourites</Button>
+						<Button variant="link text-muted">Remove from Favourites</Button>
+            <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
+					</ListGroup.Item>
+				</div>
+				
+			</ListGroup> 
+        </Col>
+	
+    </Row>
     );
   }
 }
