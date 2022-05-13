@@ -1,10 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-
-
+import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -64,8 +60,19 @@ render() {
     if (movies.length === 0) return <div className="main-view" />;
 
     return (
-      <Container fluid="md">
-      <Row className="main-view justify-content-md-center">
+      <Container fluid>
+      <Navbar bg="dark" expand="lg" variant="dark">
+          <Navbar.Brand href="#home">My-Flix</Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Collapse id="basic-navbar-nav">
+      <Nav className="me-auto">
+        <Nav.Link href="#home">Home</Nav.Link>
+        <Nav.Link href="./login-view.jsx">LogIn</Nav.Link>
+        <Nav.Link href="#profile">Profile</Nav.Link>
+      </Nav>
+      </Navbar.Collapse>
+   </Navbar>
+  <Row className="main-view justify-content-md-center">
       {selectedMovie
         ? (
           <Col md={8}>
@@ -79,7 +86,8 @@ render() {
         ))
       }
     </Row>
-    </Container>
+</Container>
+     
         );
     }
 
