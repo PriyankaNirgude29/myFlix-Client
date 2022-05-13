@@ -24,11 +24,11 @@ componentWillUnmount() {
 
     return (
       <Row className="w-100 justify-content-around mx-auto">
-        <Col sm={6}> 
-        	<Image className="poster" src={movie.ImagePath} crossOrigin="anonymous" width="500" height="600" onClick={() => onMovieClick(movie)}/>
+        <Col sm={5}> 
+        	<Image className="poster" src={movie.ImagePath} crossOrigin="anonymous" width="400" height="600" onClick={() => onMovieClick(movie)}/>
         </Col>
 
-        <Col sm={5}>   
+        <Col sm={6}>   
 			<ListGroup>
 				<ListGroup.Item><h3>{movie.Title}</h3></ListGroup.Item>
         <ListGroup.Item>Description: {movie.Description}</ListGroup.Item>
