@@ -25175,10 +25175,6 @@ var _reactDefault = parcelHelpers.interopDefault(_react);
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
-var _row = require("react-bootstrap/Row");
-var _rowDefault = parcelHelpers.interopDefault(_row);
-var _col = require("react-bootstrap/Col");
-var _colDefault = parcelHelpers.interopDefault(_col);
 var _registrationView = require("../registration-view/registration-view");
 var _loginView = require("../login-view/login-view");
 var _movieCard = require("../movie-card/movie-card");
@@ -25224,7 +25220,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                lineNumber: 55
+                lineNumber: 53
             },
             __self: this
         }));
@@ -25235,7 +25231,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                lineNumber: 59
+                lineNumber: 57
             },
             __self: this
         }));
@@ -25243,7 +25239,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                lineNumber: 63
+                lineNumber: 61
             },
             __self: this
         }));
@@ -25251,7 +25247,7 @@ class MainView extends _reactDefault.default.Component {
             fluid: true,
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                lineNumber: 67
+                lineNumber: 65
             },
             __self: this,
             children: [
@@ -25261,7 +25257,7 @@ class MainView extends _reactDefault.default.Component {
                     variant: "dark",
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                        lineNumber: 68
+                        lineNumber: 66
                     },
                     __self: this,
                     children: [
@@ -25269,7 +25265,7 @@ class MainView extends _reactDefault.default.Component {
                             href: "#home",
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                lineNumber: 69
+                                lineNumber: 67
                             },
                             __self: this,
                             children: "My-Flix"
@@ -25278,7 +25274,7 @@ class MainView extends _reactDefault.default.Component {
                             "aria-controls": "basic-navbar-nav",
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                lineNumber: 70
+                                lineNumber: 68
                             },
                             __self: this
                         }),
@@ -25286,14 +25282,14 @@ class MainView extends _reactDefault.default.Component {
                             id: "basic-navbar-nav",
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                lineNumber: 71
+                                lineNumber: 69
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Nav, {
                                 className: "me-auto",
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                    lineNumber: 72
+                                    lineNumber: 70
                                 },
                                 __self: this,
                                 children: [
@@ -25301,7 +25297,7 @@ class MainView extends _reactDefault.default.Component {
                                         href: "#home",
                                         __source: {
                                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                            lineNumber: 73
+                                            lineNumber: 71
                                         },
                                         __self: this,
                                         children: "Home"
@@ -25310,7 +25306,7 @@ class MainView extends _reactDefault.default.Component {
                                         href: "./login-view.jsx",
                                         __source: {
                                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                            lineNumber: 74
+                                            lineNumber: 72
                                         },
                                         __self: this,
                                         children: "LogIn"
@@ -25319,7 +25315,7 @@ class MainView extends _reactDefault.default.Component {
                                         href: "#profile",
                                         __source: {
                                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                            lineNumber: 75
+                                            lineNumber: 73
                                         },
                                         __self: this,
                                         children: "Profile"
@@ -25329,18 +25325,18 @@ class MainView extends _reactDefault.default.Component {
                         })
                     ]
                 }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_rowDefault.default, {
+                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
                     className: "main-view justify-content-md-center",
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                        lineNumber: 79
+                        lineNumber: 77
                     },
                     __self: this,
-                    children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                    children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                         md: 8,
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                            lineNumber: 82
+                            lineNumber: 80
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -25350,15 +25346,15 @@ class MainView extends _reactDefault.default.Component {
                             },
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                lineNumber: 83
+                                lineNumber: 81
                             },
                             __self: this
                         })
-                    }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
+                    }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
                             md: 3,
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                lineNumber: 88
+                                lineNumber: 86
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25368,7 +25364,7 @@ class MainView extends _reactDefault.default.Component {
                                 },
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                                    lineNumber: 89
+                                    lineNumber: 87
                                 },
                                 __self: this
                             }, movie._id)
@@ -25386,7 +25382,7 @@ exports.default = MainView;
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","../movie-card/movie-card":"k66FR","../movie-view/movie-view":"6gduu","axios":"2KoM4","../registration-view/registration-view":"9mlOn","../login-view/login-view":"8BhNH","react-bootstrap":"ckyCM","react-bootstrap/Row":"6wdi5","react-bootstrap/Col":"8Be6Q"}],"azE2E":[function(require,module,exports) {
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","../movie-card/movie-card":"k66FR","../movie-view/movie-view":"6gduu","axios":"2KoM4","../registration-view/registration-view":"9mlOn","../login-view/login-view":"8BhNH","react-bootstrap":"ckyCM"}],"azE2E":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
