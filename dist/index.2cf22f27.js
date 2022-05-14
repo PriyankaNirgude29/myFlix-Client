@@ -27006,7 +27006,7 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","prop-types":"1TkvR","./movie-view.scss":"jOtIE","react-bootstrap":"ckyCM"}],"jOtIE":[function() {},{}],"ckyCM":[function(require,module,exports) {
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","prop-types":"1TkvR","react-bootstrap":"ckyCM","./movie-view.scss":"jOtIE"}],"ckyCM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "Accordion", ()=>_accordionDefault.default
@@ -38640,7 +38640,7 @@ Tooltip.defaultProps = defaultProps;
 Tooltip.displayName = 'Tooltip';
 exports.default = Tooltip;
 
-},{"classnames":"01PeZ","react":"9kMnq","./ThemeProvider":"4HYgg","./helpers":"6RyPt","react/jsx-runtime":"2Dcpr","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E"}],"2KoM4":[function(require,module,exports) {
+},{"classnames":"01PeZ","react":"9kMnq","./ThemeProvider":"4HYgg","./helpers":"6RyPt","react/jsx-runtime":"2Dcpr","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E"}],"jOtIE":[function() {},{}],"2KoM4":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"1esZ9"}],"1esZ9":[function(require,module,exports) {
