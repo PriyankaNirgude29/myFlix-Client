@@ -960,9 +960,6 @@ class MyFlixApplication extends _reactDefault.default.Component {
             __self: this,
             children: [
                 /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Navbar, {
-                    bg: "dark",
-                    expand: "lg",
-                    variant: "dark",
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/index.jsx",
                         lineNumber: 12
@@ -971,6 +968,7 @@ class MyFlixApplication extends _reactDefault.default.Component {
                     children: [
                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Navbar.Brand, {
                             href: "#home",
+                            className: "logo_navbar",
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/index.jsx",
                                 lineNumber: 13
@@ -26860,8 +26858,6 @@ class MovieView extends _reactDefault.default.Component {
                         className: "poster",
                         src: movie.ImagePath,
                         crossOrigin: "anonymous",
-                        width: "400",
-                        height: "600",
                         onClick: ()=>onMovieClick(movie)
                         ,
                         __source: {
