@@ -9,8 +9,8 @@ class MyFlixApplication extends React.Component {
   render() {
     return (
 <Container fluid>
-      <Navbar bg="dark" expand="lg" variant="dark">
-          <Navbar.Brand href="#home">My-Flix</Navbar.Brand>
+      <Navbar>
+          <Navbar.Brand href="#home" className="logo_navbar">My-Flix</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
