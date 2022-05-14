@@ -25,7 +25,7 @@ componentWillUnmount() {
     return (
       <Row className="w-100 justify-content-around mx-auto">
         <Col sm={5}> 
-        	<Image className="poster" src={movie.ImagePath} crossOrigin="anonymous" width="400" height="600" onClick={() => onMovieClick(movie)}/>
+        	<Image className="poster" src={movie.ImagePath} crossOrigin="anonymous" onClick={() => onMovieClick(movie)}/>
         </Col>
 
         <Col sm={6}>   

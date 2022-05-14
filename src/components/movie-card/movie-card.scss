@@ -1,34 +1,18 @@
-$main-color: beige;
-$text-color: rgb(77, 10, 66);
-$background-color: #0d1a26;
-
-#movie-card {
-  height: 600px;
-  margin-top: 25px;
+.card-img-top:hover {
+  cursor: pointer;
+  opacity: 0.92;
+  transition: ease 200ms;
+}
+.movie-title {
+  font-size: 16px;
+  font-style: italic;
+  color: rgb(24, 24, 24);
+  font-weight: 700;
+  font-size: 2.0 rem;
 }
 
-#movie-image {
-  max-width: 100%;
-  height: 375px;
-}
-
-#movie-title {
-  font-size: 28px;
-  height: 100px;
-}
-
-#movie-description {
-  font-size: 18px;
-  height: 25px;
-  color: black;
-}
-
-#open-button {
-  font-size: 18px;
-  background-color: $main-color;
-  color: $text-color;
-  border: none;
-  margin-top: 8px;
-  padding: 6px;
-  border-radius: 20%;
+.movie-description {
+  color: rgb(29, 29, 29);
+  font-weight: 300;
+  font-size: 1.0 rem;
 }
