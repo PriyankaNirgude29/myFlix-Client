@@ -27,7 +27,7 @@ body {
   background-color: rgb(249, 246, 245) !important;
 }
 
-.navbar {
+.nav_main {
   background-color: rgba(136, 20, 140, 0.9);
   color: white !important;
   padding: 1rem !important;
@@ -44,4 +44,5 @@ body {
   margin-left: 2rem !important;
   color: white !important;
 }
+
 /*# sourceMappingURL=index.d1a0739e.css.map */
