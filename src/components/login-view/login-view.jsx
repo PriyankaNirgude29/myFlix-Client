@@ -7,7 +7,6 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    /* Send a request to the server for authentication */
     axios.post('https://my-movie-api29.herokuapp.com/login', {
       Username: username,
       Password: password
@@ -21,10 +20,10 @@ export function LoginView(props) {
     });
   };
 
-  const handleRegistration = (e) => {
-    e.preventDefault()
-    props.onRegister(true)
-}
+ // const handleRegistration = (e) => {
+  //  e.preventDefault()
+   // props.onRegister(true)
+//}
 
   return (
     <form>
@@ -37,12 +36,7 @@ export function LoginView(props) {
         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </label><br></br>
       <button type="submit" onClick={handleSubmit}>Already User-LogIn Here</button><br></br>
-      <button
-        type="submit"
-        onClick={handleRegistration}
-      >
-       New User-Register Here
-      </button>
+    
     </form>
   );
 }
