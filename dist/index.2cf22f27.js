@@ -25189,22 +25189,39 @@ class MainView extends _reactDefault.default.Component {
         };
     }
     componentDidMount() {
-        _axiosDefault.default.get('https://my-movie-api29.herokuapp.com/movies').then((response)=>{
+        let accessToken = localStorage.getItem('token');
+        if (accessToken !== null) {
             this.setState({
-                movies: response.data
+                user: localStorage.getItem('user')
             });
-        }).catch((error)=>{
-            console.log(error);
-        });
+            this.getMovies(accessToken);
+        }
     }
     setSelectedMovie(newSelectedMovie) {
         this.setState({
             selectedMovie: newSelectedMovie
         });
     }
-    onLoggedIn(user) {
+    onLoggedIn(authData) {
+        console.log(authData);
         this.setState({
-            user
+            user: authData.user.Username
+        });
+        localStorage.setItem('token', authData.token);
+        localStorage.setItem('user', authData.user.Username);
+        this.getMovies(authData.token);
+    }
+    getMovies(token) {
+        _axiosDefault.default.get('https://my-movie-api29.herokuapp.com/movies', {
+            headers: {
+                Authorization: 'Bearer ${token}'
+            }
+        }).then((response)=>{
+            this.setState({
+                movies: response.data
+            });
+        }).catch((error)=>{
+            console.log(error);
         });
     }
     onRegister(registered) {
@@ -25219,7 +25236,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                lineNumber: 52
+                lineNumber: 69
             },
             __self: this
         }));
@@ -25230,7 +25247,7 @@ class MainView extends _reactDefault.default.Component {
             ,
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                lineNumber: 56
+                lineNumber: 73
             },
             __self: this
         }));
@@ -25238,7 +25255,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                lineNumber: 60
+                lineNumber: 77
             },
             __self: this
         }));
@@ -25246,7 +25263,7 @@ class MainView extends _reactDefault.default.Component {
             className: "main-view",
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                lineNumber: 62
+                lineNumber: 79
             },
             __self: this,
             children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_movieView.MovieView, {
@@ -25256,7 +25273,7 @@ class MainView extends _reactDefault.default.Component {
                 },
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                    lineNumber: 64
+                    lineNumber: 81
                 },
                 __self: this
             }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_movieCard.MovieCard, {
@@ -25266,7 +25283,7 @@ class MainView extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
-                        lineNumber: 66
+                        lineNumber: 83
                     },
                     __self: this
                 }, movie._id)
@@ -29793,6 +29810,8 @@ parcelHelpers.export(exports, "LoginView", ()=>LoginView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _s = $RefreshSig$();
 function LoginView(props) {
     _s();
@@ -29800,8 +29819,15 @@ function LoginView(props) {
     const [password, setPassword] = _react.useState('');
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(username, password);
-        props.onLoggedIn(username);
+        /* Send a request to the server for authentication */ _axiosDefault.default.post('https://my-movie-api29.herokuapp.com/login', {
+            Username: username,
+            Password: password
+        }).then((response)=>{
+            const data = response.data;
+            props.onLoggedIn(data);
+        }).catch((e1)=>{
+            console.log('no such user');
+        });
     };
     const handleRegistration = (e)=>{
         e.preventDefault();
@@ -29810,14 +29836,14 @@ function LoginView(props) {
     return(/*#__PURE__*/ _jsxRuntime.jsxs("form", {
         __source: {
             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-            lineNumber: 19
+            lineNumber: 30
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 20
+                    lineNumber: 31
                 },
                 __self: this,
                 children: [
@@ -29829,7 +29855,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                            lineNumber: 22
+                            lineNumber: 33
                         },
                         __self: this
                     })
@@ -29838,14 +29864,14 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 23
+                    lineNumber: 34
                 },
                 __self: this
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs("label", {
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 24
+                    lineNumber: 35
                 },
                 __self: this,
                 children: [
@@ -29857,7 +29883,7 @@ function LoginView(props) {
                         ,
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                            lineNumber: 26
+                            lineNumber: 37
                         },
                         __self: this
                     })
@@ -29866,7 +29892,7 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 27
+                    lineNumber: 38
                 },
                 __self: this
             }),
@@ -29875,7 +29901,7 @@ function LoginView(props) {
                 onClick: handleSubmit,
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 28
+                    lineNumber: 39
                 },
                 __self: this,
                 children: "Already User-LogIn Here"
@@ -29883,7 +29909,7 @@ function LoginView(props) {
             /*#__PURE__*/ _jsxRuntime.jsx("br", {
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 28
+                    lineNumber: 39
                 },
                 __self: this
             }),
@@ -29892,7 +29918,7 @@ function LoginView(props) {
                 onClick: handleRegistration,
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 29
+                    lineNumber: 40
                 },
                 __self: this,
                 children: "New User-Register Here"
@@ -29910,6 +29936,6 @@ $RefreshReg$(_c, "LoginView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC"}],"3azbi":[function() {},{}]},["ldw38","cHQLE","kojC3"], "kojC3", "parcelRequire94c2")
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","axios":"2KoM4"}],"3azbi":[function() {},{}]},["ldw38","cHQLE","kojC3"], "kojC3", "parcelRequire94c2")
 
 //# sourceMappingURL=index.2cf22f27.js.map
