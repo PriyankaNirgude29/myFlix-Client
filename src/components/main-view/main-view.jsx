@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Row, Col } from 'react-bootstrap';
 
 import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
@@ -64,6 +65,7 @@ componentDidMount(){
 
 render() {
     const { movies, selectedMovie, user, registered } = this.state;
+<<<<<<< HEAD
 
    // if (registered) {
     //    return <RegistrationView onRegister={(bool) => this.onRegister(bool)} />;
@@ -72,17 +74,37 @@ render() {
     if (!user) return (
     <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
     );
+=======
+    
+    if (registered) {
+      return <RegistrationView onRegister={(bool) => this.onRegister(bool)} />;
+    }  
+ 
+  if (!user) return (
+  <LoginView onLoggedIn={user => this.onLoggedIn(user)}
+             onRegister={(bool) => this.onRegister(bool)} />
+  );
+>>>>>>> branch-reactBootstrap
 
     if (movies.length === 0) return <div className="main-view" />;
+
     return (
-        <div className="main-view">
-            {selectedMovie
-                    ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
-                    : movies.map((movie) => (
-                        <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }} />
-                    ))
-                }
-            </div>
+
+      <Row className="main-view justify-content-md-center">
+      {selectedMovie
+        ? (
+          <Col md={8}>
+            <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+          </Col>
+
+        )
+        : movies.map(movie => (
+          <Col md={3}>
+            <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+          </Col>
+        ))
+      }
+    </Row>
         );
     }
 

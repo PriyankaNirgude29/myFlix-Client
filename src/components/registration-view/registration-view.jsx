@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
@@ -13,24 +14,35 @@ export function RegistrationView(props) {
   };
 
   return (
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label><br></br>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label><br></br>
-      <label>
-        Email:
-        <input type="email" value={email} onChange={e => setEmail(e.target.value)} />
-      </label><br></br>
-      <label>
-        Birthday:
-        <input type="date" value={birthday} onChange={e => setBirthday(e.target.value)} />
-      </label><br></br>
-      <button type="submit" onClick={handleSubmit}>Submit</button>
-    </form>
+    <Row className="d-flex justify-content-center">
+       <Col xs={4} md={4} >
+       <Form className="d-flex flex-column justify-content-between align-items-center border border-black ">
+           <Form.Group controlId="formUsername">
+           <Form.Label>Username:</Form.Label>
+           <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} />
+           </Form.Group>
+
+          <Form.Group controlId="formPassword">
+          <Form.Label>Password:</Form.Label>
+          <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
+          </Form.Group>
+
+          <Form.Group controlId="formEmailID">
+          <Form.Label>EmailID:</Form.Label>
+          <Form.Control type="email" placeholder="Email" onChange={e => setPassword(e.target.value)} />
+          </Form.Group>
+
+          <Form.Group controlId="formBirthday">
+          <Form.Label>Birthday:</Form.Label>
+          <Form.Control type="date" placeholder="Birthdate" onChange={e => setPassword(e.target.value)} />
+          </Form.Group><br></br>
+
+         <Button variant="primary" type="submit" onClick={handleSubmit}>
+             Submit
+          </Button>
+       </Form>
+    </Col>
+  </Row>
+
   );
 }

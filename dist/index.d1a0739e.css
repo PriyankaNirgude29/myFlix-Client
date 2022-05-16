@@ -1,0 +1,47 @@
+.card-img-top:hover {
+  cursor: pointer;
+  opacity: 0.92;
+  transition: ease 200ms;
+}
+
+.movie-title {
+  font-size: 16px;
+  font-style: italic;
+  color: rgb(24, 24, 24);
+  font-weight: 700;
+  font-size: 2 rem;
+}
+
+.movie-description {
+  color: rgb(29, 29, 29);
+  font-weight: 300;
+  font-size: 1 rem;
+}
+.poster {
+  opacity: 1 !important;
+  cursor: default !important;
+  max-width: 25rem !important;
+  height: auto;
+}
+body {
+  background-color: rgb(249, 246, 245) !important;
+}
+
+.navbar {
+  background-color: rgba(136, 20, 140, 0.9);
+  color: white !important;
+  padding: 1rem !important;
+}
+
+.navbar-text {
+  margin-right: 2rem !important;
+  color: white !important;
+}
+
+.logo_navbar {
+  font-family: "Lobster", cursive;
+  font-size: 4rem !important;
+  margin-left: 2rem !important;
+  color: white !important;
+}
+/*# sourceMappingURL=index.d1a0739e.css.map */
