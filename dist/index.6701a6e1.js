@@ -25196,11 +25196,9 @@ class MainView extends _reactDefault.default.Component {
             this.getMovies(accessToken);
         }
     }
-    setSelectedMovie(newSelectedMovie) {
-        this.setState({
-            selectedMovie: newSelectedMovie
-        });
-    }
+    //setSelectedMovie(newSelectedMovie) { 
+    // this.setState({selectedMovie: newSelectedMovie });
+    //    }
     onLoggedIn(authData) {
         console.log(authData);
         this.setState({
