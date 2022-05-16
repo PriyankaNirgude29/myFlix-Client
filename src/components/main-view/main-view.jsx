@@ -13,7 +13,7 @@ constructor(){
     movies: [],
     selectedMovies:null,
     user: null,
-    registered: null
+   // registered: null
   };
 }
 
@@ -44,7 +44,7 @@ setSelectedMovie(newSelectedMovie) {
 
       getMovies(token){
         axios.get('https://my-movie-api29.herokuapp.com/movies',{
-              headers: { Authorization: 'Bearer ${token}'}
+              headers: { Authorization: `Bearer ${ token }`}
            })
         .then(response => {
                 this.setState({
@@ -56,22 +56,21 @@ setSelectedMovie(newSelectedMovie) {
           });
       }
 
-      onRegister(registered) {
-        this.setState({
-          registered,
-        });
-      }
+   //   onRegister(registered) {
+    //    this.setState({
+     //     registered,
+      //  });
+     // }
 
 render() {
     const { movies, selectedMovie, user, registered } = this.state;
 
-    if (registered) {
-        return <RegistrationView onRegister={(bool) => this.onRegister(bool)} />;
-      }  
+   // if (registered) {
+    //    return <RegistrationView onRegister={(bool) => this.onRegister(bool)} />;
+     // }  
    
     if (!user) return (
-    <LoginView onLoggedIn={user => this.onLoggedIn(user)}
-               onRegister={(bool) => this.onRegister(bool)} />
+    <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
     );
 
     if (movies.length === 0) return <div className="main-view" />;
