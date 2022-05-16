@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
 import axios from 'axios';
-=======
 import { Form, Button, Row, Col } from 'react-bootstrap';
->>>>>>> branch-reactBootstrap
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -30,21 +27,7 @@ export function LoginView(props) {
 //}
 
   return (
-<<<<<<< HEAD
-    <form>
-      <label>
-        Username:
-        <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-      </label><br></br>
-      <label>
-        Password:
-        <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
-      </label><br></br>
-      <button type="submit" onClick={handleSubmit}>Already User-LogIn Here</button><br></br>
-    
-    </form>
-=======
-    <Row className="d-flex justify-content-center">
+      <Row className="d-flex justify-content-center">
         <Col xs={4} md={4} >
           <Form className="d-flex flex-column justify-content-between align-items-center border border-black ">
           <Form.Group controlId="formUsername">
@@ -72,6 +55,5 @@ export function LoginView(props) {
         </Form>
       </Col>
     </Row>
->>>>>>> branch-reactBootstrap
   );
 }

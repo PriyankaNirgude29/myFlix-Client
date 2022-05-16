@@ -65,7 +65,6 @@ componentDidMount(){
 
 render() {
     const { movies, selectedMovie, user, registered } = this.state;
-<<<<<<< HEAD
 
    // if (registered) {
     //    return <RegistrationView onRegister={(bool) => this.onRegister(bool)} />;
@@ -74,7 +73,6 @@ render() {
     if (!user) return (
     <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
     );
-=======
     
     if (registered) {
       return <RegistrationView onRegister={(bool) => this.onRegister(bool)} />;
@@ -84,7 +82,7 @@ render() {
   <LoginView onLoggedIn={user => this.onLoggedIn(user)}
              onRegister={(bool) => this.onRegister(bool)} />
   );
->>>>>>> branch-reactBootstrap
+
 
     if (movies.length === 0) return <div className="main-view" />;
 
