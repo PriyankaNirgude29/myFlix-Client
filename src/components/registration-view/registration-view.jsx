@@ -1,16 +1,34 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
 export function RegistrationView(props) {
-  const [ username, setUsername ] = useState('');
-  const [ password, setPassword ] = useState('');
-  const [ email, setEmail ] = useState('');
-  const [ birthday, setBirthday ] = useState('');
+  const [ Username, setUsername ] = useState('');
+  const [ Password, setPassword ] = useState('');
+  const [ Email, setEmail ] = useState('');
+  const [ Birthday, setBirthday ] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
-    props.onRegister(false);
+      axios
+        .post("https://my-movie-api29.herokuapp.com/users", {
+          username: Username,
+          password: Password,
+          email: Email,
+          birthday: Birthday,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+          alert("Registration successful, please login!");
+          window.open("/", "_self");
+          //open in the current tab
+        })
+        .catch((response) => {
+          console.error(response);
+          alert("error registering the user");
+        });
+    
   };
 
   return (
@@ -29,12 +47,12 @@ export function RegistrationView(props) {
 
           <Form.Group controlId="formEmailID">
           <Form.Label>EmailID:</Form.Label>
-          <Form.Control type="email" placeholder="Email" onChange={e => setPassword(e.target.value)} />
+          <Form.Control type="email" placeholder="Email" onChange={e => setEmail(e.target.value)} />
           </Form.Group>
 
           <Form.Group controlId="formBirthday">
           <Form.Label>Birthday:</Form.Label>
-          <Form.Control type="date" placeholder="Birthdate" onChange={e => setPassword(e.target.value)} />
+          <Form.Control type="date" placeholder="Birthdate" onChange={e => setBirthday(e.target.value)} />
           </Form.Group><br></br>
 
          <Button variant="primary" type="submit" onClick={handleSubmit}>
