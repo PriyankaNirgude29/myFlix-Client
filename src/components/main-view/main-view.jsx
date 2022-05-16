@@ -74,13 +74,12 @@ render() {
     <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
     );
     
-    if (registered) {
-      return <RegistrationView onRegister={(bool) => this.onRegister(bool)} />;
-    }  
+   // if (registered) {
+    //  return <RegistrationView onRegister={(bool) => this.onRegister(bool)} />;
+   // }  
  
   if (!user) return (
-  <LoginView onLoggedIn={user => this.onLoggedIn(user)}
-             onRegister={(bool) => this.onRegister(bool)} />
+  <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
   );
 
 

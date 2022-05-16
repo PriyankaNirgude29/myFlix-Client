@@ -46,12 +46,7 @@ export function LoginView(props) {
                Already User-LogIn
           </Button><br></br>
 
-          <Button variant="primary"
-              type="submit"
-              onClick={handleRegistration}
-          >
-             New User-Register Here
-            </Button>
+          
         </Form>
       </Col>
     </Row>
