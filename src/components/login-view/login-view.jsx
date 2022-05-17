@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import PropTypes from "prop-types";
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
 export function LoginView(props) {
@@ -43,7 +44,7 @@ export function LoginView(props) {
 
     
           <Button variant="primary" type="submit" onClick={handleSubmit}>
-               Already User-LogIn
+            LogIn
           </Button><br></br>
 
           
@@ -52,3 +53,8 @@ export function LoginView(props) {
     </Row>
   );
 }
+
+LoginView.propTypes = {
+  
+  onLoggedIn: PropTypes.func.isRequired,
+};
