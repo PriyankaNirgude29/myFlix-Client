@@ -1,21 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 import { Form, Button, Row, Col } from 'react-bootstrap';
 
 export function RegistrationView(props) {
-  const [ Username, setUsername ] = useState('');
-  const [ Password, setPassword ] = useState('');
-  const [ Email, setEmail ] = useState('');
-  const [ Birthday, setBirthday ] = useState('');
+  const [ username, setUsername ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ email, setEmail ] = useState('');
+  const [ birthday, setBirthday ] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
       axios
         .post("https://my-movie-api29.herokuapp.com/users", {
-          username: Username,
-          password: Password,
-          email: Email,
-          birthday: Birthday,
+          username: username,
+          password: password,
+          email: email,
+          birthday: birthday,
         })
         .then((response) => {
           const data = response.data;
@@ -64,3 +66,11 @@ export function RegistrationView(props) {
 
   );
 }
+RegistrationView.propTypes = {
+  register: PropTypes.shape({
+    Username: PropTypes.string.isRequired,
+    Password: PropTypes.string.isRequired,
+    Email: PropTypes.string.isRequired,
+    Birthday: PropTypes.string.isRequired,
+  }).isRequired,
+};
