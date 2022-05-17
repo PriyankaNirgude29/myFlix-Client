@@ -22,11 +22,6 @@ export function LoginView(props) {
     });
   };
 
- // const handleRegistration = (e) => {
-  //  e.preventDefault()
-   // props.onRegister(true)
-//}
-
   return (
       <Row className="d-flex justify-content-center">
         <Col xs={4} md={4} >
@@ -42,10 +37,16 @@ export function LoginView(props) {
           <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
           </Form.Group><br></br>
 
-    
-          <Button variant="primary" type="submit" onClick={handleSubmit}>
-            LogIn
-          </Button><br></br>
+          <div className="mt-2">
+            <Button
+              variant="primary"
+              className="w-100"
+              type="submit"
+              onClick={handleSubmit}
+            >
+              Login
+            </Button>
+          </div>
 
           
         </Form>
@@ -56,5 +57,5 @@ export function LoginView(props) {
 
 LoginView.propTypes = {
   
-  onLoggedIn: PropTypes.func.isRequired,
+   onLoggedIn: PropTypes.func.isRequired,
 };
