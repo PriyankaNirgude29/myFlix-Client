@@ -3,8 +3,8 @@ import { Navbar, Nav, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './menu-view.scss';
 
-export function Menu(){
-    let user = localStorage.getItem("user");
+export function Menu({user}){
+
     const onLoggedOut = () =>{
         localStorage.clear();
         window.open("/","_self");
@@ -24,14 +24,14 @@ export function Menu(){
             
                   <Navbar className='nav_main' >
                       <Navbar.Brand  className="logo_navbar" as={Link} to={"/"}>My-Flix</Navbar.Brand>
-                      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                      <Navbar.Collapse id="basic-navbar-nav">
+                      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                      <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
                       { isAuth() && (  
                       <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>
                       ) }
                       { isAuth() && (  
-                      <Button variant='link' onClick={() =>{ this.onLoggedOut() }}>Logout</Button>
+                      <Button variant="link" onClick={() =>{ onLoggedOut() }}>Logout</Button>
                       ) }
                       { !isAuth() && (  
                       <Nav.Link href="/">Sign-in</Nav.Link>
