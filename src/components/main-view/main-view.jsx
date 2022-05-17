@@ -7,6 +7,8 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { GenreView } from '../genre-view/genre-view';
+import { DirectorView } from '../director-view/director-view';
 
 
 export class MainView extends React.Component {
@@ -18,8 +20,30 @@ constructor(){
   };
 }
 
+componentDidMount(){
+  let accessToken = localStorage.getItem("token");
+  if(accessToken !== null){
+    this.setState({
+      user: localStorage.getItem("user")
+    });
+    this.getMovies(accessToken);
+    }
+  }
+
+  onLoggedIn(authData) {
+    console.log(authData);
+    this.setState({
+
+      user: authData.user.Username
+    });
+  
+    localStorage.setItem("token", authData.token);
+    localStorage.setItem("user", authData.user.Username);
+    this.getMovies(authData.token);
+    }
+
 getMovies(token){
-  axios.get('https://my-movie-api29.herokuapp.com/movies',{
+  axios.get("https://my-movie-api29.herokuapp.com/movies",{
     headers: { Authorization: `Bearer ${token}`}
      })
   .then(response => {
@@ -31,35 +55,6 @@ getMovies(token){
         console.log(error);
     });
 }
-
-componentDidMount(){
-  let accessToken = localStorage.getItem('token');
-  if(accessToken !== null){
-    this.setState({
-      user: localStorage.getItem('user')
-    });
-    this.getMovies(accessToken);
-    }
-  }
-
-     onLoggedIn(authData) {
-      console.log(authData);
-      this.setState({
-        user: authData.user.Username
-      });
-    
-      localStorage.setItem('token', authData.token);
-      localStorage.setItem('user', authData.user.Username);
-      this.getMovies(authData.token);
-      }
-
-      onLoggedOut() {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        this.setState({
-          user: null,
-        });
-      }
 
 render() {
     const { movies, user } = this.state;
@@ -122,7 +117,7 @@ render() {
           />
 
           <Route
-            path="/genres/:name"
+            path="/genre/:name"
             render={({ match, history }) => {
               if (!user)
                 return (
@@ -149,7 +144,7 @@ render() {
           />
 
           <Route
-            path="/directors/:name"
+            path="/director/:name"
             render={({ match, history }) => {
               if (!user)
                 return (
