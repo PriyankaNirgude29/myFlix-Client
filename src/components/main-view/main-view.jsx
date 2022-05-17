@@ -9,6 +9,7 @@ import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
+import { ProfileView } from '../profile-view/profile-view';
 
 
 export class MainView extends React.Component {
@@ -57,7 +58,7 @@ getMovies(token){
 }
 
 render() {
-    const { movies, user } = this.state;
+    const { movies, user  } = this.state;
     return (
     <Router>
       <Menu user={user} />
