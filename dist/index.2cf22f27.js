@@ -45226,7 +45226,7 @@ var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 function UserData(props) {
-    const { userdata  } = props;
+    const userdata = props.userdata;
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
         __source: {
             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/user-data.jsx",
@@ -45241,7 +45241,7 @@ function UserData(props) {
                     lineNumber: 8
                 },
                 __self: this,
-                children: userdata.userName
+                children: userdata.username
             }),
             /*#__PURE__*/ _jsxRuntime.jsxs("p", {
                 __source: {
@@ -45544,7 +45544,7 @@ function FavoriteMovies({ favoriteMoviesList , removeFav  }) {
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
                             className: "bg-light text-black",
-                            border: "danger",
+                            border: "dark",
                             style: {
                                 width: "20rem",
                                 height: "20rem",
@@ -45584,33 +45584,24 @@ function FavoriteMovies({ favoriteMoviesList , removeFav  }) {
                                             __self: this,
                                             children: movie.Title
                                         }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Subtitle, {
-                                            className: "mb-2 text-muted",
-                                            __source: {
-                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
-                                                lineNumber: 33
-                                            },
-                                            __self: this,
-                                            children: movie.Year
-                                        }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                             variant: "outline-danger",
                                             onClick: ()=>removeFav(movie._id)
                                             ,
                                             __source: {
                                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
-                                                lineNumber: 36
+                                                lineNumber: 33
                                             },
                                             __self: this,
                                             children: "Remove from Favorites"
                                         }),
                                         /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
                                             className: "ms-2",
-                                            variant: "danger",
+                                            variant: "primary",
                                             href: `/movies/${movie._id}`,
                                             __source: {
                                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
-                                                lineNumber: 42
+                                                lineNumber: 39
                                             },
                                             __self: this,
                                             children: "Details"
