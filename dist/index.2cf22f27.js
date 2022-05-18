@@ -41451,8 +41451,8 @@ var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
-var _reactRouterDom = require("react-router-dom");
 var _reactBootstrap = require("react-bootstrap");
+var _reactRouterDom = require("react-router-dom");
 var _s = $RefreshSig$();
 function RegistrationView(props) {
     _s();
@@ -41460,13 +41460,43 @@ function RegistrationView(props) {
     const [password, setPassword] = _react.useState('');
     const [email, setEmail] = _react.useState('');
     const [birthday, setBirthday] = _react.useState('');
+    //Declare hook for each input
+    const [usernameErr, setUsernameErr] = _react.useState('');
+    const [passwordErr, setPasswordErr] = _react.useState('');
+    const [emailErr, setEmailErr] = _react.useState('');
+    const validate = ()=>{
+        let isReq = true;
+        if (!username) {
+            setUsernameErr('Create Username');
+            isReq = false;
+        } else if (username.length < 5) {
+            setUsernameErr('Username must be 5 characters long');
+            isReq = false;
+        }
+        if (!password) {
+            setPasswordErr('Create Password(Min 6 characters)');
+            isReq = false;
+        } else if (password.length < 6) {
+            setPasswordErr('Password must be 6 characters long');
+            isReq = false;
+        }
+        if (!email) {
+            setEmailErr('Add Email');
+            isReq = false;
+        } else if (email.indexOf('@') === -1) {
+            setEmail('Invalid Email');
+            isReq = false;
+        }
+        return isReq;
+    };
     const handleSubmit = (e)=>{
         e.preventDefault();
-        _axiosDefault.default.post("https://my-movie-api29.herokuapp.com/users", {
-            username: username,
-            password: password,
-            email: email,
-            birthday: birthday
+        const isReq = validate();
+        if (isReq) _axiosDefault.default.post("https://my-movie-api29.herokuapp.com/users", {
+            Username: username,
+            Password: password,
+            Email: email,
+            Birthday: birthday
         }).then((response)=>{
             const data = response.data;
             console.log(data);
@@ -41482,7 +41512,7 @@ function RegistrationView(props) {
         className: "d-flex justify-content-center",
         __source: {
             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-            lineNumber: 37
+            lineNumber: 71
         },
         __self: this,
         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
@@ -41490,14 +41520,14 @@ function RegistrationView(props) {
             md: 4,
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                lineNumber: 38
+                lineNumber: 72
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                 className: "d-flex flex-column justify-content-between align-items-center border border-black ",
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                    lineNumber: 39
+                    lineNumber: 73
                 },
                 __self: this,
                 children: [
@@ -41505,14 +41535,14 @@ function RegistrationView(props) {
                         controlId: "formUsername",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 40
+                            lineNumber: 74
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 41
+                                    lineNumber: 75
                                 },
                                 __self: this,
                                 children: "Username:"
@@ -41524,7 +41554,7 @@ function RegistrationView(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 42
+                                    lineNumber: 76
                                 },
                                 __self: this
                             })
@@ -41534,14 +41564,14 @@ function RegistrationView(props) {
                         controlId: "formPassword",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 45
+                            lineNumber: 79
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 46
+                                    lineNumber: 80
                                 },
                                 __self: this,
                                 children: "Password:"
@@ -41553,7 +41583,7 @@ function RegistrationView(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 47
+                                    lineNumber: 81
                                 },
                                 __self: this
                             })
@@ -41563,14 +41593,14 @@ function RegistrationView(props) {
                         controlId: "formEmailID",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 50
+                            lineNumber: 84
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 51
+                                    lineNumber: 85
                                 },
                                 __self: this,
                                 children: "EmailID:"
@@ -41582,7 +41612,7 @@ function RegistrationView(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 52
+                                    lineNumber: 86
                                 },
                                 __self: this
                             })
@@ -41592,14 +41622,14 @@ function RegistrationView(props) {
                         controlId: "formBirthday",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 55
+                            lineNumber: 89
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 56
+                                    lineNumber: 90
                                 },
                                 __self: this,
                                 children: "Birthday:"
@@ -41611,7 +41641,7 @@ function RegistrationView(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                                    lineNumber: 57
+                                    lineNumber: 91
                                 },
                                 __self: this
                             })
@@ -41620,7 +41650,7 @@ function RegistrationView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 58
+                            lineNumber: 92
                         },
                         __self: this
                     }),
@@ -41630,17 +41660,44 @@ function RegistrationView(props) {
                         onClick: handleSubmit,
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
-                            lineNumber: 60
+                            lineNumber: 94
                         },
                         __self: this,
                         children: "Submit"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx("p", {
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
+                            lineNumber: 97
+                        },
+                        __self: this,
+                        children: " Already have an account?"
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                        to: `/`,
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
+                            lineNumber: 98
+                        },
+                        __self: this,
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                            variant: "primary",
+                            className: "custom-btn",
+                            type: "submit",
+                            __source: {
+                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/registration-view/registration-view.jsx",
+                                lineNumber: 99
+                            },
+                            __self: this,
+                            children: "Sign in"
+                        })
                     })
                 ]
             })
         })
     }));
 }
-_s(RegistrationView, "oodxkowr8L/+sgf0pg4pF6PrtNw=");
+_s(RegistrationView, "SBDk+o9t/V8BMrtqXZ/U1GCnIBM=");
 _c = RegistrationView;
 RegistrationView.propTypes = {
     register: _propTypesDefault.default.shape({
@@ -41648,7 +41705,7 @@ RegistrationView.propTypes = {
         Password: _propTypesDefault.default.string.isRequired,
         Email: _propTypesDefault.default.string.isRequired,
         Birthday: _propTypesDefault.default.string.isRequired
-    }).isRequired
+    })
 };
 var _c;
 $RefreshReg$(_c, "RegistrationView");
@@ -44097,9 +44154,32 @@ function LoginView(props) {
     _s();
     const [username, setUsername] = _react.useState('');
     const [password, setPassword] = _react.useState('');
+    //declare hook for each input
+    const [usernameErr, setUsernameErr] = _react.useState("");
+    const [passwordErr, setPasswordErr] = _react.useState("");
+    //validate user inputs
+    const validate = ()=>{
+        let isReq = true;
+        if (!username) {
+            setUsernameErr("Username is required!");
+            isReq = false;
+        } else if (username.length < 2) {
+            setUsernameErr("Username must be 2 characters long!");
+            isReq = false;
+        }
+        if (!password) {
+            setPasswordErr("Password is required!");
+            isReq = false;
+        } else if (password.length < 6) {
+            setPassword("Password must be 6 characters long!");
+            isReq = false;
+        }
+        return isReq;
+    };
     const handleSubmit = (e)=>{
         e.preventDefault();
-        _axiosDefault.default.post("https://my-movie-api29.herokuapp.com/login", {
+        const isReq = validate();
+        if (isReq) _axiosDefault.default.post("https://my-movie-api29.herokuapp.com/login", {
             Username: username,
             Password: password
         }).then((response)=>{
@@ -44113,7 +44193,7 @@ function LoginView(props) {
         className: "d-flex justify-content-center",
         __source: {
             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-            lineNumber: 26
+            lineNumber: 52
         },
         __self: this,
         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
@@ -44121,14 +44201,14 @@ function LoginView(props) {
             md: 4,
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                lineNumber: 27
+                lineNumber: 53
             },
             __self: this,
             children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
                 className: "d-flex flex-column justify-content-between align-items-center border border-black ",
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                    lineNumber: 28
+                    lineNumber: 54
                 },
                 __self: this,
                 children: [
@@ -44136,14 +44216,14 @@ function LoginView(props) {
                         controlId: "formUsername",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                            lineNumber: 29
+                            lineNumber: 55
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                                    lineNumber: 30
+                                    lineNumber: 56
                                 },
                                 __self: this,
                                 children: "Username:"
@@ -44155,7 +44235,7 @@ function LoginView(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                                    lineNumber: 31
+                                    lineNumber: 57
                                 },
                                 __self: this
                             })
@@ -44165,14 +44245,14 @@ function LoginView(props) {
                         controlId: "formPassword",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                            lineNumber: 35
+                            lineNumber: 61
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                                    lineNumber: 36
+                                    lineNumber: 62
                                 },
                                 __self: this,
                                 children: "Password:"
@@ -44184,7 +44264,7 @@ function LoginView(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                                    lineNumber: 37
+                                    lineNumber: 63
                                 },
                                 __self: this
                             })
@@ -44193,7 +44273,7 @@ function LoginView(props) {
                     /*#__PURE__*/ _jsxRuntime.jsx("br", {
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                            lineNumber: 38
+                            lineNumber: 64
                         },
                         __self: this
                     }),
@@ -44201,7 +44281,7 @@ function LoginView(props) {
                         className: "mt-2",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                            lineNumber: 40
+                            lineNumber: 66
                         },
                         __self: this,
                         children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
@@ -44211,7 +44291,7 @@ function LoginView(props) {
                             onClick: handleSubmit,
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/login-view/login-view.jsx",
-                                lineNumber: 41
+                                lineNumber: 67
                             },
                             __self: this,
                             children: "Login"
@@ -44222,7 +44302,7 @@ function LoginView(props) {
         })
     }));
 }
-_s(LoginView, "9FY2cPL9VBDmuhjwpF2ik6flsHs=");
+_s(LoginView, "pvIpUF1LBHtny+aCz+Rww7wFiOU=");
 _c = LoginView;
 LoginView.propTypes = {
     onLoggedIn: _propTypesDefault.default.func.isRequired
@@ -44257,13 +44337,15 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
 var _reactRouterDom = require("react-router-dom");
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 class MovieCard extends _reactDefault.default.Component {
     render() {
         const { movie , onMovieClick  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 16
+                lineNumber: 18
             },
             __self: this,
             children: [
@@ -44271,7 +44353,7 @@ class MovieCard extends _reactDefault.default.Component {
                     to: `/movies/${movie._id}`,
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                        lineNumber: 17
+                        lineNumber: 19
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
@@ -44283,7 +44365,7 @@ class MovieCard extends _reactDefault.default.Component {
                         height: "500",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                            lineNumber: 18
+                            lineNumber: 20
                         },
                         __self: this
                     })
@@ -44291,7 +44373,7 @@ class MovieCard extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                        lineNumber: 20
+                        lineNumber: 22
                     },
                     __self: this,
                     children: [
@@ -44299,7 +44381,7 @@ class MovieCard extends _reactDefault.default.Component {
                             className: "movie-title",
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                                lineNumber: 21
+                                lineNumber: 23
                             },
                             __self: this,
                             children: movie.Title
@@ -44308,7 +44390,7 @@ class MovieCard extends _reactDefault.default.Component {
                             className: "movie-description",
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                                lineNumber: 22
+                                lineNumber: 24
                             },
                             __self: this,
                             children: movie.Description
@@ -44317,7 +44399,7 @@ class MovieCard extends _reactDefault.default.Component {
                             to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                                lineNumber: 23
+                                lineNumber: 25
                             },
                             __self: this,
                             children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
@@ -44325,7 +44407,7 @@ class MovieCard extends _reactDefault.default.Component {
                                 variant: "link",
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 24
+                                    lineNumber: 26
                                 },
                                 __self: this,
                                 children: "Open"
@@ -44349,7 +44431,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","prop-types":"1TkvR","./movie-card.scss":"kY5Ry","react-bootstrap/Button":"4KSsk","react-bootstrap/Card":"fAgJG","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","react-router-dom":"3IHUi"}],"kY5Ry":[function() {},{}],"6gduu":[function(require,module,exports) {
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","prop-types":"1TkvR","./movie-card.scss":"kY5Ry","react-bootstrap/Button":"4KSsk","react-bootstrap/Card":"fAgJG","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","react-router-dom":"3IHUi","axios":"2KoM4"}],"kY5Ry":[function() {},{}],"6gduu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ebd8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -44365,6 +44447,8 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _propTypes = require("prop-types");
 var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _axios = require("axios");
+var _axiosDefault = parcelHelpers.interopDefault(_axios);
 var _reactBootstrap = require("react-bootstrap");
 var _movieViewScss = require("./movie-view.scss");
 class MovieView extends _reactDefault.default.Component {
@@ -44373,11 +44457,11 @@ class MovieView extends _reactDefault.default.Component {
     }
     //Add Keypress event listener
     componentDidMount() {
-        document.addEventListener('keypress', this.keypressCallback);
+        document.addEventListener("keypress", this.keypressCallback);
     }
     //Unmount event listener
     componentWillUnmount() {
-        document.removeEventListener('keypress', this.keypressCallback);
+        document.removeEventListener("keypress", this.keypressCallback);
     }
     render() {
         const { movie , onBackClick  } = this.props;
@@ -44385,7 +44469,7 @@ class MovieView extends _reactDefault.default.Component {
             className: "w-100 justify-content-around mx-auto",
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                lineNumber: 26
+                lineNumber: 29
             },
             __self: this,
             children: [
@@ -44393,7 +44477,7 @@ class MovieView extends _reactDefault.default.Component {
                     sm: 5,
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                        lineNumber: 27
+                        lineNumber: 30
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Image, {
@@ -44404,7 +44488,7 @@ class MovieView extends _reactDefault.default.Component {
                         ,
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                            lineNumber: 28
+                            lineNumber: 31
                         },
                         __self: this
                     })
@@ -44413,26 +44497,26 @@ class MovieView extends _reactDefault.default.Component {
                     sm: 6,
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                        lineNumber: 31
+                        lineNumber: 34
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.ListGroup, {
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                            lineNumber: 32
+                            lineNumber: 35
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.ListGroup.Item, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 33
+                                    lineNumber: 36
                                 },
                                 __self: this,
                                 children: /*#__PURE__*/ _jsxRuntime.jsx("h3", {
                                     __source: {
                                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 33
+                                        lineNumber: 36
                                     },
                                     __self: this,
                                     children: movie.Title
@@ -44441,7 +44525,7 @@ class MovieView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.ListGroup.Item, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 34
+                                    lineNumber: 37
                                 },
                                 __self: this,
                                 children: [
@@ -44452,7 +44536,7 @@ class MovieView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.ListGroup.Item, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 35
+                                    lineNumber: 38
                                 },
                                 __self: this,
                                 children: [
@@ -44463,7 +44547,7 @@ class MovieView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.ListGroup.Item, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 36
+                                    lineNumber: 39
                                 },
                                 __self: this,
                                 children: [
@@ -44474,48 +44558,20 @@ class MovieView extends _reactDefault.default.Component {
                             /*#__PURE__*/ _jsxRuntime.jsx("div", {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                    lineNumber: 38
+                                    lineNumber: 41
                                 },
                                 __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.ListGroup.Item, {
-                                    className: "w-100 d-flex justify-content-between",
+                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                    variant: "primary",
+                                    onClick: ()=>{
+                                        onBackClick(null);
+                                    },
                                     __source: {
                                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                        lineNumber: 39
+                                        lineNumber: 44
                                     },
                                     __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                            variant: "link text-muted",
-                                            __source: {
-                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 40
-                                            },
-                                            __self: this,
-                                            children: "Add to favourites"
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                            variant: "link text-muted",
-                                            __source: {
-                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 41
-                                            },
-                                            __self: this,
-                                            children: "Remove from Favourites"
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                            variant: "primary",
-                                            onClick: ()=>{
-                                                onBackClick(null);
-                                            },
-                                            __source: {
-                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-view/movie-view.jsx",
-                                                lineNumber: 42
-                                            },
-                                            __self: this,
-                                            children: "Back"
-                                        })
-                                    ]
+                                    children: "Back"
                                 })
                             })
                         ]
@@ -44535,8 +44591,7 @@ MovieView.propTypes = {
         Director: _propTypesDefault.default.shape({
             Name: _propTypesDefault.default.string
         })
-    }).isRequired,
-    onBackClick: _propTypesDefault.default.func.isRequired
+    }).isRequired
 };
 
   $parcel$ReactRefreshHelpers$ebd8.postlude(module);
@@ -44544,7 +44599,7 @@ MovieView.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","prop-types":"1TkvR","react-bootstrap":"ckyCM","./movie-view.scss":"jOtIE","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC"}],"jOtIE":[function() {},{}],"1Ju7r":[function(require,module,exports) {
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","prop-types":"1TkvR","react-bootstrap":"ckyCM","./movie-view.scss":"jOtIE","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","axios":"2KoM4"}],"jOtIE":[function() {},{}],"1Ju7r":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$29b7 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -44667,7 +44722,7 @@ $RefreshReg$(_c, "Menu");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","react-bootstrap":"ckyCM","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","./menu-view.scss":"dWKIK","react-router-dom":"3IHUi"}],"dWKIK":[function() {},{}],"ilAGe":[function(require,module,exports) {
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","react-bootstrap":"ckyCM","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","react-router-dom":"3IHUi","./menu-view.scss":"dWKIK"}],"dWKIK":[function() {},{}],"ilAGe":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$db0b = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -44973,689 +45028,612 @@ parcelHelpers.export(exports, "ProfileView", ()=>ProfileView
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRouterDom = require("react-router-dom");
-var _propTypes = require("prop-types");
-var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
+var _reactBootstrap = require("react-bootstrap");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
-var _reactBootstrap = require("react-bootstrap");
-class ProfileView extends _reactDefault.default.Component {
-    constructor(){
-        super();
-        this.state = {
-            username: null,
-            password: null,
-            email: null,
-            birthday: null,
-            favoriteMovies: []
-        };
-        this.removeFav = this.removeFav.bind(this);
-    }
-    getUser(token) {
-        let user = localStorage.getItem("user");
-        _axiosDefault.default.get({
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
+var _profileViewScss = require("./profile-view.scss");
+var _userData = require("./user-data");
+var _updateUser = require("./update-user");
+var _favouriteMovies = require("./favourite-movies");
+var _s = $RefreshSig$();
+function ProfileView(props) {
+    _s();
+    const [userdata, setUserdata] = _react.useState({
+    });
+    const [updatedUser, setUpdatedUser] = _react.useState({
+    });
+    const [favoriteMoviesList, setFavoriteMoviesList] = _react.useState([]);
+    let token = localStorage.getItem('token');
+    _axiosDefault.default.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+    const getUserData = (cancelToken, username)=>{
+        _axiosDefault.default.get(`https://my-movie-api29.herokuapp.com/users/${username}`, {
+            cancelToken: cancelToken
         }).then((response)=>{
-            //assign the result to the state
-            this.setState({
-                username: response.data.username,
-                password: response.data.password,
-                email: response.data.email,
-                birthday: response.data.birthday,
-                favoriteMovies: response.data.favoriteMovies
-            });
-        }).catch((e)=>console.log(e)
-        );
-    }
-    componentDidMount() {
-        const accessToken = localStorage.getItem("token");
-        this.getUser(accessToken);
-    }
-    onLoggedOut() {
-        localStorage.removeItem("token");
-        localStorage.removeItem("user");
-        this.setState({
-            user: null
-        });
-        window.open("/", "_self");
-    }
-    editProfile = (e)=>{
-        e.preventDefault();
-        const user = localStorage.getItem("user");
-        const token = localStorage.getItem("token");
-        _axiosDefault.default.put(`https://my-movie-api29.herokuapp.com/users/${user}`, {
-            username: this.state.username,
-            password: this.state.password,
-            email: this.state.email,
-            birthday: this.state.birthday
-        }, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            this.setState({
-                username: response.data.username,
-                password: response.data.password,
-                email: response.data.email,
-                birthday: response.data.birthday
-            });
-            localStorage.setItem("user", this.state.username);
-            alert("profile updated successfully!");
-            window.open("/profile", "_self");
+            setUserdata(response.data);
+            setUpdatedUser(response.data);
+            setFavoriteMoviesList(props.movies.filter((m)=>response.data.FavoriteMovies.includes(m._id)
+            ));
+        }).catch((err)=>{
+            console.log(err);
         });
     };
-    deleteProfile() {
-        const username = localStorage.getItem("user");
-        const token = localStorage.getItem("token");
-        _axiosDefault.default.delete(`https://my-movie-api29.herokuapp.com/users/${username}`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).then((response)=>{
-            console.log(response);
-            alert("profile deleted");
-            localStorage.removeItem("user");
-            localStorage.removeItem("token");
-        }).catch((e)=>console.log(e)
-        );
-    }
-    setUsername(value) {
-        this.setState({
-            username: value
+    _react.useEffect(()=>{
+        let source = _axiosDefault.default.CancelToken.source();
+        if (token !== null) getUserData(source.token, props.user);
+        else console.log('Not Authorized');
+        return ()=>{
+            source.cancel();
+        };
+    }, []);
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        _axiosDefault.default.put(`https://my-movie-api29.herokuapp.com/users/${userdata.Username}`, updatedUser).then((response)=>{
+            setUserdata(response.data);
+            alert('Profile updated');
+        }).catch((e1)=>{
+            console.log(e1);
         });
-    }
-    setPassword(value) {
-        this.setState({
-            password: value
+    };
+    const handleUpdate = (e)=>{
+        setUpdatedUser({
+            ...updatedUser,
+            [e.target.name]: e.target.value
         });
-    }
-    setEmail(value) {
-        this.setState({
-            email: value
+    };
+    const deleteProfile = (e)=>{
+        _axiosDefault.default.delete(`https://my-movie-api29.herokuapp.com/users/${userdata.userName}`).then((response)=>{
+            alert("Your profile has beeen deleted");
+            onUserUpdated(null);
+            window.open("/", "_self");
+        }).catch((e1)=>{
+            console.log(e1);
         });
-    }
-    setBirthday(value) {
-        this.setState({
-            birthday: value
+    };
+    const removeFav = (id)=>{
+        _axiosDefault.default.delete(`https://my-movie-api29.herokuapp.com/users/${currentUser.userName}/movies/${id}`).then(()=>{
+            const newFavourites = favoriteMoviesList.filter((movie)=>movie._id != id
+            );
+            const currentUser = JSON.parse(localStorage.getItem("user"));
+            currentUser.favouriteMovies = currentUser.favouriteMovies.filter((fmId)=>id !== fmId
+            );
+            setFavoriteMoviesList(newFavourites);
+            onUserUpdated(currentUser);
+        }).catch((e)=>{
+            console.log(e);
         });
-    }
-    removeFav() {
-        const user = localStorage.getItem("user");
-        const token = localStorage.getItem("token");
-        const id = this.state.favoriteMovies;
-        _axiosDefault.default.delete(`https://my-movie-api29.herokuapp.com/users/${user}/movies/${id}`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }, {
-        }).then((response)=>{
-            console.log(response);
-            alert("Movie deleted from favorites!");
-            window.open(`/movies/${id}`, "_self");
-        }).catch((err)=>console.log(err)
-        );
-    }
-    render() {
-        const { movies , onBackClick  } = this.props;
-        const { favoriteMovies , username , password , email , birthday  } = this.state;
-        if (!username) return null;
-        return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
+    };
+    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
+        className: "app-container",
+        __source: {
+            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
+            lineNumber: 101
+        },
+        __self: this,
+        children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                lineNumber: 160
+                lineNumber: 102
             },
             __self: this,
-            children: [
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                    __source: {
-                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                        lineNumber: 161
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
+            children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Col, {
+                med: 4,
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
+                    lineNumber: 103
+                },
+                __self: this,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                        className: "mt-4",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                            lineNumber: 162
+                            lineNumber: 104
+                        },
+                        __self: this,
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_userData.UserData, {
+                            userdata: userdata,
+                            __source: {
+                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
+                                lineNumber: 106
+                            },
+                            __self: this
+                        })
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                        className: "mb-2",
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
+                            lineNumber: 110
+                        },
+                        __self: this,
+                        children: /*#__PURE__*/ _jsxRuntime.jsx(_favouriteMovies.FavoriteMovies, {
+                            favoriteMoviesList: favoriteMoviesList,
+                            removeFav: removeFav,
+                            __source: {
+                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
+                                lineNumber: 111
+                            },
+                            __self: this
+                        })
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_updateUser.UpdateUserForm, {
+                        userdata: userdata,
+                        handleSubmit: handleSubmit,
+                        handleUpdate: handleUpdate,
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
+                            lineNumber: 118
+                        },
+                        __self: this
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsxs("div", {
+                        className: "d-flex flex-row p-2 border gap-4 my-4 justify-content-center align-items-center",
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
+                            lineNumber: 125
                         },
                         __self: this,
                         children: [
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                variant: "danger",
+                                type: "submit",
+                                onClick: deleteProfile,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 163
+                                    lineNumber: 126
                                 },
                                 __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
-                                    __source: {
-                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 164
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                            className: "titles h1 text-center",
-                                            __source: {
-                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 165
-                                            },
-                                            __self: this,
-                                            children: [
-                                                "Hi, ",
-                                                username
-                                            ]
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
-                                            className: "titles text-center custom-card-title",
-                                            __source: {
-                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 166
-                                            },
-                                            __self: this,
-                                            children: "View and update your details"
-                                        }),
-                                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Form, {
-                                            className: "update-form",
-                                            onSubmit: (e)=>this.editProfile(e, this.username, this.password, this.email, this.birthday)
-                                            ,
-                                            __source: {
-                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 169
-                                            },
-                                            __self: this,
-                                            children: [
-                                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.FormGroup, {
-                                                    __source: {
-                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 181
-                                                    },
-                                                    __self: this,
-                                                    children: [
-                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                                                            className: "titles h3",
-                                                            __source: {
-                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 182
-                                                            },
-                                                            __self: this,
-                                                            children: "Username"
-                                                        }),
-                                                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
-                                                            className: "d-flex flex-column flex-sm-row justify-content-between p-1",
-                                                            __source: {
-                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 183
-                                                            },
-                                                            __self: this,
-                                                            children: [
-                                                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
-                                                                    className: "mb-3",
-                                                                    style: {
-                                                                        width: "40%"
-                                                                    },
-                                                                    type: "text",
-                                                                    name: "username",
-                                                                    placeholder: username,
-                                                                    disabled: true,
-                                                                    __source: {
-                                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 184
-                                                                    },
-                                                                    __self: this
-                                                                }),
-                                                                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                                                    className: "p-0 d-flex-column",
-                                                                    style: {
-                                                                        width: "50%"
-                                                                    },
-                                                                    __source: {
-                                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 193
-                                                                    },
-                                                                    __self: this,
-                                                                    children: [
-                                                                        " ",
-                                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
-                                                                            type: "text",
-                                                                            name: "username",
-                                                                            placeholder: "insert your new username here",
-                                                                            onChange: (e)=>this.setUsername(e.target.value)
-                                                                            ,
-                                                                            required: true,
-                                                                            __source: {
-                                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                                lineNumber: 198
-                                                                            },
-                                                                            __self: this
-                                                                        }),
-                                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Text, {
-                                                                            className: "text-muted",
-                                                                            __source: {
-                                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                                lineNumber: 205
-                                                                            },
-                                                                            __self: this,
-                                                                            children: "Your username should be at least 4 characters long"
-                                                                        })
-                                                                    ]
-                                                                })
-                                                            ]
-                                                        })
-                                                    ]
-                                                }),
-                                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.FormGroup, {
-                                                    __source: {
-                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 212
-                                                    },
-                                                    __self: this,
-                                                    children: [
-                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                                                            className: "titles h3",
-                                                            __source: {
-                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 213
-                                                            },
-                                                            __self: this,
-                                                            children: "Password"
-                                                        }),
-                                                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
-                                                            className: "d-flex flex-column flex-sm-row justify-content-between p-1",
-                                                            __source: {
-                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 214
-                                                            },
-                                                            __self: this,
-                                                            children: [
-                                                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
-                                                                    className: "mb-3",
-                                                                    style: {
-                                                                        width: "40%"
-                                                                    },
-                                                                    type: "text",
-                                                                    name: "password",
-                                                                    placeholder: password,
-                                                                    disabled: true,
-                                                                    __source: {
-                                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 215
-                                                                    },
-                                                                    __self: this
-                                                                }),
-                                                                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                                                    className: "p-0 d-flex-column",
-                                                                    style: {
-                                                                        width: "50%"
-                                                                    },
-                                                                    __source: {
-                                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 224
-                                                                    },
-                                                                    __self: this,
-                                                                    children: [
-                                                                        " ",
-                                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
-                                                                            type: "text",
-                                                                            name: "password",
-                                                                            placeholder: "insert your new password here",
-                                                                            onChange: (e)=>this.setPassword(e.target.value)
-                                                                            ,
-                                                                            required: true,
-                                                                            __source: {
-                                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                                lineNumber: 229
-                                                                            },
-                                                                            __self: this
-                                                                        }),
-                                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Text, {
-                                                                            className: "text-muted",
-                                                                            __source: {
-                                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                                lineNumber: 236
-                                                                            },
-                                                                            __self: this,
-                                                                            children: "Your password should be at least 8 characters long"
-                                                                        })
-                                                                    ]
-                                                                })
-                                                            ]
-                                                        })
-                                                    ]
-                                                }),
-                                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.FormGroup, {
-                                                    __source: {
-                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 243
-                                                    },
-                                                    __self: this,
-                                                    children: [
-                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                                                            className: "titles h3",
-                                                            __source: {
-                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 244
-                                                            },
-                                                            __self: this,
-                                                            children: "Email"
-                                                        }),
-                                                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
-                                                            className: "d-flex flex-column flex-sm-row justify-content-between p-1",
-                                                            __source: {
-                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 245
-                                                            },
-                                                            __self: this,
-                                                            children: [
-                                                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
-                                                                    className: "mb-3",
-                                                                    style: {
-                                                                        width: "40%"
-                                                                    },
-                                                                    type: "email",
-                                                                    name: "email",
-                                                                    placeholder: email,
-                                                                    disabled: true,
-                                                                    __source: {
-                                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 246
-                                                                    },
-                                                                    __self: this
-                                                                }),
-                                                                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                                                    className: "p-0 d-flex-column",
-                                                                    style: {
-                                                                        width: "50%"
-                                                                    },
-                                                                    __source: {
-                                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 255
-                                                                    },
-                                                                    __self: this,
-                                                                    children: [
-                                                                        " ",
-                                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
-                                                                            type: "email",
-                                                                            name: "email",
-                                                                            placeholder: "insert your new email here",
-                                                                            onChange: (e)=>this.setEmail(e.target.value)
-                                                                            ,
-                                                                            required: true,
-                                                                            __source: {
-                                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                                lineNumber: 260
-                                                                            },
-                                                                            __self: this
-                                                                        })
-                                                                    ]
-                                                                })
-                                                            ]
-                                                        })
-                                                    ]
-                                                }),
-                                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.FormGroup, {
-                                                    __source: {
-                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 271
-                                                    },
-                                                    __self: this,
-                                                    children: [
-                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Form.Label, {
-                                                            className: "titles h3",
-                                                            __source: {
-                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 272
-                                                            },
-                                                            __self: this,
-                                                            children: "Birth date"
-                                                        }),
-                                                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
-                                                            className: "d-flex flex-column flex-sm-row justify-content-between p-1",
-                                                            __source: {
-                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                lineNumber: 273
-                                                            },
-                                                            __self: this,
-                                                            children: [
-                                                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
-                                                                    className: "mb-3",
-                                                                    style: {
-                                                                        width: "40%"
-                                                                    },
-                                                                    type: "text",
-                                                                    name: "birthday",
-                                                                    placeholder: birthday,
-                                                                    disabled: true,
-                                                                    __source: {
-                                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 274
-                                                                    },
-                                                                    __self: this
-                                                                }),
-                                                                /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                                                    className: "p-0 d-flex-column",
-                                                                    style: {
-                                                                        width: "50%"
-                                                                    },
-                                                                    __source: {
-                                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                        lineNumber: 283
-                                                                    },
-                                                                    __self: this,
-                                                                    children: [
-                                                                        " ",
-                                                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.FormControl, {
-                                                                            type: "date",
-                                                                            name: "birthday",
-                                                                            placeholder: "insert your new email here",
-                                                                            onChange: (e)=>this.setBirthday(e.target.value)
-                                                                            ,
-                                                                            required: true,
-                                                                            __source: {
-                                                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                                                lineNumber: 288
-                                                                            },
-                                                                            __self: this
-                                                                        })
-                                                                    ]
-                                                                })
-                                                            ]
-                                                        })
-                                                    ]
-                                                }),
-                                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Container, {
-                                                    __source: {
-                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 299
-                                                    },
-                                                    __self: this,
-                                                    children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                                        variant: "primary custom-btn",
-                                                        type: "submit",
-                                                        onClick: this.editProfile,
-                                                        __source: {
-                                                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                            lineNumber: 300
-                                                        },
-                                                        __self: this,
-                                                        children: "Update profile info"
-                                                    })
-                                                })
-                                            ]
-                                        })
-                                    ]
-                                })
+                                children: "Delete Profile"
                             }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
-                                className: "mt-2 mb-2",
+                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Nav.Link, {
+                                href: "/",
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 311
+                                    lineNumber: 129
                                 },
                                 __self: this,
-                                children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
-                                    className: "p-1 text-center card-custom",
-                                    __source: {
-                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 312
-                                    },
-                                    __self: this,
-                                    children: [
-                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                            style: {
-                                                width: "80%"
-                                            },
-                                            className: "custom-btn-delete m-1",
-                                            variant: "primary",
-                                            type: "submit",
-                                            onClick: this.deleteProfile,
-                                            __source: {
-                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 313
-                                            },
-                                            __self: this,
-                                            children: "Delete your entire profile"
-                                        }),
-                                        " "
-                                    ]
-                                })
+                                children: "Back to Movies"
                             })
                         ]
                     })
-                }),
-                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card, {
-                    __source: {
-                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                        lineNumber: 327
-                    },
-                    __self: this,
-                    children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
-                        __source: {
-                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                            lineNumber: 328
-                        },
-                        __self: this,
-                        children: [
-                            favoriteMovies.length === 0 && /*#__PURE__*/ _jsxRuntime.jsxs("div", {
-                                className: "titles h1 text-center",
-                                __source: {
-                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 330
-                                },
-                                __self: this,
-                                children: [
-                                    /*#__PURE__*/ _jsxRuntime.jsx("h1", {
-                                        __source: {
-                                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 331
-                                        },
-                                        __self: this,
-                                        children: "There's no movies in your list of favorites!"
-                                    }),
-                                    /*#__PURE__*/ _jsxRuntime.jsxs("p", {
-                                        className: "h5",
-                                        __source: {
-                                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 332
-                                        },
-                                        __self: this,
-                                        children: [
-                                            "Head over to the",
-                                            " ",
-                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
-                                                to: `/`,
-                                                __source: {
-                                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                    lineNumber: 334
-                                                },
-                                                __self: this,
-                                                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                                    className: "custom-btn",
-                                                    type: "submit",
-                                                    __source: {
-                                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 335
-                                                    },
-                                                    __self: this,
-                                                    children: "List of movies"
-                                                })
-                                            }),
-                                            " ",
-                                            "to add some"
-                                        ]
-                                    })
-                                ]
-                            }),
-                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
-                                className: "favorite-movies d-flex justify-content-around",
-                                __source: {
-                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 343
-                                },
-                                __self: this,
-                                children: favoriteMovies.length > 0 && movies.map((movie)=>{
-                                    if (movie._id === favoriteMovies.find((fav)=>fav === movie._id
-                                    )) return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
-                                        className: "favorite-movie m-2",
-                                        __source: {
-                                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 351
-                                        },
-                                        __self: this,
-                                        children: [
-                                            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
-                                                src: movie.ImagePath,
-                                                __source: {
-                                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                    lineNumber: 352
-                                                },
-                                                __self: this
-                                            }),
-                                            /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
-                                                __source: {
-                                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                    lineNumber: 353
-                                                },
-                                                __self: this,
-                                                children: [
-                                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
-                                                        className: "h1 titles",
-                                                        __source: {
-                                                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                            lineNumber: 354
-                                                        },
-                                                        __self: this,
-                                                        children: movie.Title
-                                                    }),
-                                                    /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
-                                                        className: "custom-btn",
-                                                        onClick: this.removeFav,
-                                                        __source: {
-                                                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/profile-view.jsx",
-                                                            lineNumber: 357
-                                                        },
-                                                        __self: this,
-                                                        children: "Remove from List"
-                                                    })
-                                                ]
-                                            })
-                                        ]
-                                    }, movie._id));
-                                })
-                            })
-                        ]
-                    })
-                })
-            ]
-        }));
-    }
+                ]
+            })
+        })
+    }));
 }
+_s(ProfileView, "kJHvV1VbW7jPQYWWNpQqtSTzpho=");
+_c = ProfileView;
+var _c;
+$RefreshReg$(_c, "ProfileView");
 
   $parcel$ReactRefreshHelpers$95b0.postlude(module);
 } finally {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","react-router-dom":"3IHUi","prop-types":"1TkvR","axios":"2KoM4","react-bootstrap":"ckyCM","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC"}],"3azbi":[function() {},{}]},["ldw38","cHQLE","kojC3"], "kojC3", "parcelRequire94c2")
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","react-bootstrap":"ckyCM","axios":"2KoM4","./profile-view.scss":"9aKum","./user-data":"abvB4","./update-user":"DSxC9","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","./favourite-movies":"5E7Uy"}],"9aKum":[function() {},{}],"abvB4":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$a969 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$a969.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "UserData", ()=>UserData
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+function UserData(props) {
+    const { userdata  } = props;
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
+        __source: {
+            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/user-data.jsx",
+            lineNumber: 7
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx("h1", {
+                className: "text-primary",
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/user-data.jsx",
+                    lineNumber: 8
+                },
+                __self: this,
+                children: userdata.userName
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("p", {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/user-data.jsx",
+                    lineNumber: 9
+                },
+                __self: this,
+                children: [
+                    "Email: ",
+                    userdata.email
+                ]
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs("p", {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/user-data.jsx",
+                    lineNumber: 10
+                },
+                __self: this,
+                children: [
+                    "Birthday: ",
+                    userdata.birthday
+                ]
+            })
+        ]
+    }));
+}
+_c = UserData;
+var _c;
+$RefreshReg$(_c, "UserData");
+
+  $parcel$ReactRefreshHelpers$a969.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC"}],"DSxC9":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$ba0f = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$ba0f.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "UpdateUserForm", ()=>UpdateUserForm
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _form = require("react-bootstrap/Form");
+var _formDefault = parcelHelpers.interopDefault(_form);
+var _button = require("react-bootstrap/Button");
+var _buttonDefault = parcelHelpers.interopDefault(_button);
+function UpdateUserForm(props) {
+    const { handleUpdate , handleSubmit , userdata  } = props;
+    // Return a registration form where users can submit their username, password, email and birthday
+    // Listening to changes on input and then updating the respective states
+    //const birthday = new Date(userdata.birthday).toISOString();
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
+        __source: {
+            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+            lineNumber: 13
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx("h4", {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                    lineNumber: 14
+                },
+                __self: this,
+                children: "Update profile information"
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default, {
+                className: "mb-3",
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                    lineNumber: 15
+                },
+                __self: this,
+                children: [
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                        controlId: "formUsername",
+                        className: "mb-3",
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                            lineNumber: 16
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                __source: {
+                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                                    lineNumber: 17
+                                },
+                                __self: this,
+                                children: "Username:"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                type: "text",
+                                value: userdata.userName,
+                                name: "userName",
+                                onInput: (e)=>handleUpdate(e)
+                                ,
+                                __source: {
+                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                                    lineNumber: 18
+                                },
+                                __self: this
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                        controlId: "formPassword",
+                        className: "mb-3",
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                            lineNumber: 26
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                __source: {
+                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                                    lineNumber: 27
+                                },
+                                __self: this,
+                                children: "Password:"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                type: "password",
+                                name: "password",
+                                value: userdata.password,
+                                onChange: (e)=>handleUpdate(e)
+                                ,
+                                __source: {
+                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                                    lineNumber: 28
+                                },
+                                __self: this
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                        controlId: "formEmail",
+                        className: "mb-3",
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                            lineNumber: 36
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                __source: {
+                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                                    lineNumber: 37
+                                },
+                                __self: this,
+                                children: "Email:"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                type: "email",
+                                name: "email",
+                                value: userdata.email,
+                                onChange: (e)=>handleUpdate(e)
+                                ,
+                                __source: {
+                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                                    lineNumber: 38
+                                },
+                                __self: this
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsxs(_formDefault.default.Group, {
+                        controlId: "formBirthday",
+                        className: "mb-3",
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                            lineNumber: 46
+                        },
+                        __self: this,
+                        children: [
+                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
+                                __source: {
+                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                                    lineNumber: 47
+                                },
+                                __self: this,
+                                children: "Birthday:"
+                            }),
+                            /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
+                                type: "date",
+                                value: userdata.birthday,
+                                name: "birthday",
+                                onChange: (e)=>handleUpdate(e)
+                                ,
+                                __source: {
+                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                                    lineNumber: 48
+                                },
+                                __self: this
+                            })
+                        ]
+                    }),
+                    /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                        variant: "primary",
+                        type: "submit",
+                        onClick: handleSubmit,
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
+                            lineNumber: 56
+                        },
+                        __self: this,
+                        children: "Update Profile"
+                    })
+                ]
+            })
+        ]
+    }));
+}
+_c = UpdateUserForm;
+var _c;
+$RefreshReg$(_c, "UpdateUserForm");
+
+  $parcel$ReactRefreshHelpers$ba0f.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","react-bootstrap/Form":"hD1WA","react-bootstrap/Button":"4KSsk"}],"5E7Uy":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$db43 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$db43.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "FavoriteMovies", ()=>FavoriteMovies
+);
+var _jsxRuntime = require("react/jsx-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRouterDom = require("react-router-dom");
+var _reactBootstrap = require("react-bootstrap");
+function FavoriteMovies({ favoriteMoviesList , removeFav  }) {
+    return(/*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
+        __source: {
+            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+            lineNumber: 7
+        },
+        __self: this,
+        children: [
+            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                    lineNumber: 8
+                },
+                __self: this,
+                children: /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                    xs: 12,
+                    __source: {
+                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                        lineNumber: 9
+                    },
+                    __self: this,
+                    children: /*#__PURE__*/ _jsxRuntime.jsx("h4", {
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                            lineNumber: 10
+                        },
+                        __self: this,
+                        children: "Favorite Movies"
+                    })
+                })
+            }),
+            /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Row, {
+                __source: {
+                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                    lineNumber: 13
+                },
+                __self: this,
+                children: favoriteMoviesList.length === 0 ? /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                    __source: {
+                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                        lineNumber: 15
+                    },
+                    __self: this,
+                    children: "You have no favourite movies yet"
+                }) : favoriteMoviesList.map((movie)=>{
+                    return(/*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Col, {
+                        xs: 12,
+                        md: 6,
+                        lg: 4,
+                        __source: {
+                            fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                            lineNumber: 19
+                        },
+                        __self: this,
+                        children: /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
+                            className: "bg-light text-black",
+                            border: "danger",
+                            style: {
+                                width: "20rem",
+                                height: "20rem",
+                                margin: ".5rem"
+                            },
+                            __source: {
+                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                                lineNumber: 20
+                            },
+                            __self: this,
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Img, {
+                                    variant: "top",
+                                    src: movie.ImagePath,
+                                    crossOrigin: "true",
+                                    style: {
+                                        height: "12rem"
+                                    },
+                                    __source: {
+                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                                        lineNumber: 25
+                                    },
+                                    __self: this
+                                }),
+                                /*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card.Body, {
+                                    __source: {
+                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                                        lineNumber: 31
+                                    },
+                                    __self: this,
+                                    children: [
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Title, {
+                                            __source: {
+                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                                                lineNumber: 32
+                                            },
+                                            __self: this,
+                                            children: movie.Title
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Card.Subtitle, {
+                                            className: "mb-2 text-muted",
+                                            __source: {
+                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                                                lineNumber: 33
+                                            },
+                                            __self: this,
+                                            children: movie.Year
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                            variant: "outline-danger",
+                                            onClick: ()=>removeFav(movie._id)
+                                            ,
+                                            __source: {
+                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                                                lineNumber: 36
+                                            },
+                                            __self: this,
+                                            children: "Remove from Favorites"
+                                        }),
+                                        /*#__PURE__*/ _jsxRuntime.jsx(_reactBootstrap.Button, {
+                                            className: "ms-2",
+                                            variant: "danger",
+                                            href: `/movies/${movie._id}`,
+                                            __source: {
+                                                fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/favourite-movies.jsx",
+                                                lineNumber: 42
+                                            },
+                                            __self: this,
+                                            children: "Details"
+                                        })
+                                    ]
+                                })
+                            ]
+                        })
+                    }, movie._id));
+                })
+            })
+        ]
+    }));
+}
+_c = FavoriteMovies;
+var _c;
+$RefreshReg$(_c, "FavoriteMovies");
+
+  $parcel$ReactRefreshHelpers$db43.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","react-router-dom":"3IHUi","react-bootstrap":"ckyCM","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC"}],"3azbi":[function() {},{}]},["ldw38","cHQLE","kojC3"], "kojC3", "parcelRequire94c2")
 
 //# sourceMappingURL=index.2cf22f27.js.map
