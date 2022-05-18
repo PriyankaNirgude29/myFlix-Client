@@ -19,7 +19,7 @@ export function FavoriteMovies({ favoriteMoviesList, removeFav }) {
               <Col xs={12} md={6} lg={4} key={movie._id}>
                 <Card
                   className="bg-light text-black"
-                  border="danger"
+                  border="dark"
                   style={{ width: "20rem", height: "20rem", margin: ".5rem" }}
                 >
                   <Card.Img
@@ -30,9 +30,6 @@ export function FavoriteMovies({ favoriteMoviesList, removeFav }) {
                   />
                   <Card.Body>
                     <Card.Title>{movie.Title}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      {movie.Year}
-                    </Card.Subtitle>
                     <Button
                       variant="outline-danger"
                       onClick={() => removeFav(movie._id)}
@@ -41,7 +38,7 @@ export function FavoriteMovies({ favoriteMoviesList, removeFav }) {
                     </Button>
                     <Button
                       className="ms-2"
-                      variant="danger"
+                      variant="primary"
                       href={`/movies/${movie._id}`}
                     >
                       Details
