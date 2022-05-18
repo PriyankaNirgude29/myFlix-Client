@@ -1,27 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from "axios";
+
 import { ListGroup, Button, Row, Col, Image} from 'react-bootstrap';
 import './movie-view.scss';
 
 export class MovieView extends React.Component {
-
+  
+  
   keypressCallback(event) {
     console.log(event.key);
-}
+  }
+  //Add Keypress event listener
 
-//Add Keypress event listener
-componentDidMount() {
-    document.addEventListener('keypress', this.keypressCallback);
-}
+  componentDidMount() {
+    document.addEventListener("keypress", this.keypressCallback);
+  }
+  //Unmount event listener
 
-//Unmount event listener
-componentWillUnmount() {
-    document.removeEventListener('keypress', this.keypressCallback);
-}
+  componentWillUnmount() {
+    document.removeEventListener("keypress", this.keypressCallback);
+  }
 
+  
   render() {
     const { movie, onBackClick } = this.props;
-
     return (
       <Row className="w-100 justify-content-around mx-auto">
         <Col sm={5}> 
@@ -36,11 +39,10 @@ componentWillUnmount() {
         <ListGroup.Item>Director: {movie.Director.Name}</ListGroup.Item>
 			
 				<div>
-					<ListGroup.Item className="w-100 d-flex justify-content-between">
-						<Button variant="link text-muted">Add to favourites</Button>
-						<Button variant="link text-muted">Remove from Favourites</Button>
+					
+
             <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
-					</ListGroup.Item>
+					
 				</div>
 				
 			</ListGroup> 
@@ -62,6 +64,4 @@ MovieView.propTypes = {
       Name: PropTypes.string,
     }),
   }).isRequired,
-
-  onBackClick: PropTypes.func.isRequired,
 };
