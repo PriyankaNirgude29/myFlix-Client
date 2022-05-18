@@ -1,12 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 import './movie-card.scss';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 
 export class MovieCard extends React.Component {
+  
   render() {
     const { movie, onMovieClick } = this.props;
 
