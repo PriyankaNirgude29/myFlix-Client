@@ -45326,20 +45326,17 @@ var _buttonDefault = parcelHelpers.interopDefault(_button);
 function UpdateUserForm(props) {
     const userdata = props.userdata;
     const { handleUpdate , handleSubmit  } = props;
-    // Return a registration form where users can submit their username, password, email and birthday
-    // Listening to changes on input and then updating the respective states
-    //const birthday = new Date(userdata.birthday).toISOString();
     return(/*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
         __source: {
             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-            lineNumber: 14
+            lineNumber: 11
         },
         __self: this,
         children: [
             /*#__PURE__*/ _jsxRuntime.jsx("h4", {
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                    lineNumber: 15
+                    lineNumber: 12
                 },
                 __self: this,
                 children: "Update profile information"
@@ -45348,7 +45345,7 @@ function UpdateUserForm(props) {
                 className: "mb-3",
                 __source: {
                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                    lineNumber: 16
+                    lineNumber: 13
                 },
                 __self: this,
                 children: [
@@ -45357,14 +45354,14 @@ function UpdateUserForm(props) {
                         className: "mb-3",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                            lineNumber: 17
+                            lineNumber: 14
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                                    lineNumber: 18
+                                    lineNumber: 15
                                 },
                                 __self: this,
                                 children: "Username:"
@@ -45377,7 +45374,7 @@ function UpdateUserForm(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                                    lineNumber: 19
+                                    lineNumber: 16
                                 },
                                 __self: this
                             })
@@ -45388,14 +45385,14 @@ function UpdateUserForm(props) {
                         className: "mb-3",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                            lineNumber: 27
+                            lineNumber: 24
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                                    lineNumber: 28
+                                    lineNumber: 25
                                 },
                                 __self: this,
                                 children: "Password:"
@@ -45407,7 +45404,7 @@ function UpdateUserForm(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                                    lineNumber: 29
+                                    lineNumber: 26
                                 },
                                 __self: this
                             })
@@ -45418,14 +45415,14 @@ function UpdateUserForm(props) {
                         className: "mb-3",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                            lineNumber: 36
+                            lineNumber: 33
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                                    lineNumber: 37
+                                    lineNumber: 34
                                 },
                                 __self: this,
                                 children: "Email:"
@@ -45438,7 +45435,7 @@ function UpdateUserForm(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                                    lineNumber: 38
+                                    lineNumber: 35
                                 },
                                 __self: this
                             })
@@ -45449,14 +45446,14 @@ function UpdateUserForm(props) {
                         className: "mb-3",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                            lineNumber: 46
+                            lineNumber: 43
                         },
                         __self: this,
                         children: [
                             /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Label, {
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                                    lineNumber: 47
+                                    lineNumber: 44
                                 },
                                 __self: this,
                                 children: "Birthday:"
@@ -45469,7 +45466,7 @@ function UpdateUserForm(props) {
                                 ,
                                 __source: {
                                     fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                                    lineNumber: 48
+                                    lineNumber: 45
                                 },
                                 __self: this
                             })
@@ -45481,7 +45478,7 @@ function UpdateUserForm(props) {
                         onClick: handleSubmit,
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/profile-view/update-user.jsx",
-                            lineNumber: 56
+                            lineNumber: 53
                         },
                         __self: this,
                         children: "Update Profile"
