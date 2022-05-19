@@ -7,7 +7,6 @@ import './movie-view.scss';
 
 export class MovieView extends React.Component {
   
-  
   keypressCallback(event) {
     console.log(event.key);
   }
@@ -42,6 +41,7 @@ export class MovieView extends React.Component {
 					
 
             <Button variant="primary" onClick={() => { onBackClick(null); }}>Back</Button>
+            
 					
 				</div>
 				
