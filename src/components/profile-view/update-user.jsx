@@ -47,7 +47,7 @@ export function UpdateUserForm(props) {
           <Form.Label>Birthday:</Form.Label>
           <Form.Control
             type="date"
-            defaultValue={userdata.Birthday}
+            defaultvalue={userdata.Birthday}
             name="birthday"
             onChange={(e) => handleUpdate(e)}
           />
