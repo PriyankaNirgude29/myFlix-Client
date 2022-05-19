@@ -24,7 +24,7 @@ export function ProfileView(props) {
     })
       .then(response => {
         setUserdata(response.data);
-        setUpdatedUser(response.data)
+        setUpdatedUser(response.data);
         setFavoriteMoviesList(props.movies.filter(m => response.data.FavoriteMovies.includes(m._id)));
       })
       .catch(err => {
