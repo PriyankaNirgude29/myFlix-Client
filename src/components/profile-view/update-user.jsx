@@ -6,10 +6,7 @@ import Button from "react-bootstrap/Button";
 export function UpdateUserForm(props) {
  const userdata = props.userdata;
 const { handleUpdate, handleSubmit } = props;
-  // Return a registration form where users can submit their username, password, email and birthday
-  // Listening to changes on input and then updating the respective states
-  //const birthday = new Date(userdata.birthday).toISOString();
-
+  
   return (
     <Fragment>
       <h4>Update profile information</h4>
