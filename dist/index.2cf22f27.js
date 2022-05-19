@@ -44336,16 +44336,41 @@ var _button = require("react-bootstrap/Button");
 var _buttonDefault = parcelHelpers.interopDefault(_button);
 var _card = require("react-bootstrap/Card");
 var _cardDefault = parcelHelpers.interopDefault(_card);
-var _reactRouterDom = require("react-router-dom");
 var _axios = require("axios");
 var _axiosDefault = parcelHelpers.interopDefault(_axios);
+var _reactRouterDom = require("react-router-dom");
 class MovieCard extends _reactDefault.default.Component {
+    constructor(){
+        super();
+        this.state = {
+            FavoriteMovies: []
+        };
+    }
+    onAddFavorite = (movie)=>{
+        const Username = localStorage.getItem('user');
+        const token = localStorage.getItem('token');
+        _axiosDefault.default.post(`https://my-movie-api29.herokuapp.com/users/${Username}/movies/${movie._id}`, {
+            FavoriteMovies: this.state.FavoriteMovies
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((response)=>{
+            this.setState({
+                FavoriteMovies: response.data.FavoriteMovies
+            });
+            console.log(response);
+            alert("Movie Added to favorities!!");
+        }).catch(function(error) {
+            console.log(error);
+        });
+    };
     render() {
-        const { movie , onMovieClick  } = this.props;
+        const { movie , onAddFavorite  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default, {
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                lineNumber: 18
+                lineNumber: 49
             },
             __self: this,
             children: [
@@ -44353,7 +44378,7 @@ class MovieCard extends _reactDefault.default.Component {
                     to: `/movies/${movie._id}`,
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                        lineNumber: 19
+                        lineNumber: 50
                     },
                     __self: this,
                     children: /*#__PURE__*/ _jsxRuntime.jsx(_cardDefault.default.Img, {
@@ -44365,7 +44390,7 @@ class MovieCard extends _reactDefault.default.Component {
                         height: "500",
                         __source: {
                             fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                            lineNumber: 20
+                            lineNumber: 51
                         },
                         __self: this
                     })
@@ -44373,7 +44398,7 @@ class MovieCard extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsxs(_cardDefault.default.Body, {
                     __source: {
                         fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                        lineNumber: 22
+                        lineNumber: 53
                     },
                     __self: this,
                     children: [
@@ -44381,7 +44406,7 @@ class MovieCard extends _reactDefault.default.Component {
                             className: "movie-title",
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                                lineNumber: 23
+                                lineNumber: 54
                             },
                             __self: this,
                             children: movie.Title
@@ -44390,28 +44415,41 @@ class MovieCard extends _reactDefault.default.Component {
                             className: "movie-description",
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                                lineNumber: 24
+                                lineNumber: 55
                             },
                             __self: this,
                             children: movie.Description
                         }),
-                        /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Link, {
+                        /*#__PURE__*/ _jsxRuntime.jsxs(_reactRouterDom.Link, {
                             to: `/movies/${movie._id}`,
                             __source: {
                                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                                lineNumber: 25
+                                lineNumber: 56
                             },
                             __self: this,
-                            children: /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
-                                className: "open-button",
-                                variant: "link",
-                                __source: {
-                                    fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
-                                    lineNumber: 26
-                                },
-                                __self: this,
-                                children: "Open"
-                            })
+                            children: [
+                                /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                    className: "open-button",
+                                    variant: "link",
+                                    __source: {
+                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 57
+                                    },
+                                    __self: this,
+                                    children: "Open"
+                                }),
+                                !this.state.favourite && /*#__PURE__*/ _jsxRuntime.jsx(_buttonDefault.default, {
+                                    variant: "outline-secondary",
+                                    onClick: ()=>this.onAddFavorite(movie)
+                                    ,
+                                    __source: {
+                                        fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/movie-card/movie-card.jsx",
+                                        lineNumber: 59
+                                    },
+                                    __self: this,
+                                    children: "Add to favourite"
+                                })
+                            ]
                         })
                     ]
                 })
@@ -44431,7 +44469,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","prop-types":"1TkvR","./movie-card.scss":"kY5Ry","react-bootstrap/Button":"4KSsk","react-bootstrap/Card":"fAgJG","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","react-router-dom":"3IHUi","axios":"2KoM4"}],"kY5Ry":[function() {},{}],"6gduu":[function(require,module,exports) {
+},{"react/jsx-runtime":"2Dcpr","react":"9kMnq","prop-types":"1TkvR","./movie-card.scss":"kY5Ry","react-bootstrap/Button":"4KSsk","react-bootstrap/Card":"fAgJG","@parcel/transformer-js/src/esmodule-helpers.js":"azE2E","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"1kNjC","axios":"2KoM4","react-router-dom":"3IHUi"}],"kY5Ry":[function() {},{}],"6gduu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$ebd8 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -45425,7 +45463,7 @@ function UpdateUserForm(props) {
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                                 type: "date",
-                                defaultValue: userdata.Birthday,
+                                defaultvalue: userdata.Birthday,
                                 name: "birthday",
                                 onChange: (e)=>handleUpdate(e)
                                 ,
