@@ -5,9 +5,8 @@ export function UserData(props) {
 
   return (
     <Fragment>
-      <h1 className="text-primary">{userdata.username}</h1>
-      <p>Email: {userdata.email}</p>
-      <p>Birthday: {userdata.birthday}</p>
+      <h6 className="text-primary">Hello {userdata.Username} !!</h6>
+      <p>Email: {userdata.Email}</p>
     </Fragment>
   );
 }
