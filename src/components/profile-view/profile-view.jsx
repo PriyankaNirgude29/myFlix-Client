@@ -57,6 +57,7 @@ export function ProfileView(props) {
       console.log(e);
     });
   }
+  
   const handleUpdate = (e) => {
     setUpdatedUser({
       ...updatedUser,
@@ -66,10 +67,11 @@ export function ProfileView(props) {
 
   const deleteProfile = (e) => {
     axios
-      .delete(`https://my-movie-api29.herokuapp.com/users/${userdata.userName}`)
+      .delete(`https://my-movie-api29.herokuapp.com/users/${userdata.Username}`)
       .then((response) => {
         alert("Your profile has beeen deleted");
-        onUserUpdated(null);
+        localStorage.removeItem('user');
+      localStorage.removeItem('token');
 
         window.open("/", "_self");
       })
@@ -79,22 +81,14 @@ export function ProfileView(props) {
   };
 
   const removeFav = (id) => {
-    axios
-      .delete(`https://my-movie-api29.herokuapp.com/users/${currentUser.userName}/movies/${id}`)
-      .then(() => {
-        const newFavourites = favoriteMoviesList.filter(
-          (movie) => movie._id != id
-        );
-        const currentUser = JSON.parse(localStorage.getItem("user"));
-        currentUser.favouriteMovies = currentUser.favouriteMovies.filter(
-          (fmId) => id !== fmId
-        );
-        setFavoriteMoviesList(newFavourites);
-        onUserUpdated(currentUser);
-      })
-      .catch((e) => {
+    axios.delete(`https://my-movie-api29.herokuapp.com/users/${userdata.Username}/movies/${id}`)
+    .then(() => {
+        // Change state of favoriteMovieList to render component
+        setFavoriteMoviesList(favoriteMoviesList.filter(movie => movie._id != id));
+    })
+    .catch(e => {
         console.log(e);
-      });
+    });
   };
 
   return (
