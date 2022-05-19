@@ -4,7 +4,8 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
 export function UpdateUserForm(props) {
-  const { handleUpdate, handleSubmit, userdata } = props;
+  const userdata = props.userdata;
+  const { handleUpdate, handleSubmit } = props;
   // Return a registration form where users can submit their username, password, email and birthday
   // Listening to changes on input and then updating the respective states
   //const birthday = new Date(userdata.birthday).toISOString();
@@ -17,7 +18,7 @@ export function UpdateUserForm(props) {
           <Form.Label>Username:</Form.Label>
           <Form.Control
             type="text"
-            value={userdata.userName}
+            defaultValue={userdata.Username}
             name="userName"
             onInput={(e) => handleUpdate(e)}
           />
@@ -28,7 +29,6 @@ export function UpdateUserForm(props) {
           <Form.Control
             type="password"
             name="password"
-            value={userdata.password}
             onChange={(e) => handleUpdate(e)}
           />
         </Form.Group>
@@ -38,7 +38,7 @@ export function UpdateUserForm(props) {
           <Form.Control
             type="email"
             name="email"
-            value={userdata.email}
+            defaultValue={userdata.Email}
             onChange={(e) => handleUpdate(e)}
           />
         </Form.Group>
@@ -47,7 +47,7 @@ export function UpdateUserForm(props) {
           <Form.Label>Birthday:</Form.Label>
           <Form.Control
             type="date"
-            value={userdata.birthday}
+            defaultValue={userdata.Birthday}
             name="birthday"
             onChange={(e) => handleUpdate(e)}
           />
