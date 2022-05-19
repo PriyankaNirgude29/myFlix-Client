@@ -57,7 +57,7 @@ export function ProfileView(props) {
       console.log(e);
     });
   }
-  
+
   const handleUpdate = (e) => {
     setUpdatedUser({
       ...updatedUser,
