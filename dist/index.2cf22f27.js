@@ -45368,8 +45368,8 @@ function UpdateUserForm(props) {
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                                 type: "text",
-                                defaultValue: userdata.Username,
-                                name: "userName",
+                                name: "Username",
+                                value: userdata.username,
                                 onInput: (e)=>handleUpdate(e)
                                 ,
                                 __source: {
@@ -45399,7 +45399,7 @@ function UpdateUserForm(props) {
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                                 type: "password",
-                                name: "password",
+                                name: "Password",
                                 onChange: (e)=>handleUpdate(e)
                                 ,
                                 __source: {
@@ -45429,8 +45429,8 @@ function UpdateUserForm(props) {
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                                 type: "email",
-                                name: "email",
-                                defaultValue: userdata.Email,
+                                name: "Email",
+                                value: userdata.email,
                                 onChange: (e)=>handleUpdate(e)
                                 ,
                                 __source: {
@@ -45460,8 +45460,8 @@ function UpdateUserForm(props) {
                             }),
                             /*#__PURE__*/ _jsxRuntime.jsx(_formDefault.default.Control, {
                                 type: "date",
-                                defaultvalue: userdata.Birthday,
-                                name: "birthday",
+                                name: "Birthday",
+                                value: userdata.birthday,
                                 onChange: (e)=>handleUpdate(e)
                                 ,
                                 __source: {
