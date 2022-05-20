@@ -15,8 +15,8 @@ const { handleUpdate, handleSubmit } = props;
           <Form.Label>Username:</Form.Label>
           <Form.Control
             type="text"
-            defaultValue={userdata.Username}
-            name="userName"
+            name="Username"
+            value={userdata.username}
             onInput={(e) => handleUpdate(e)}
           />
         </Form.Group>
@@ -25,7 +25,7 @@ const { handleUpdate, handleSubmit } = props;
           <Form.Label>Password:</Form.Label>
           <Form.Control
             type="password"
-            name="password"
+            name="Password"
             onChange={(e) => handleUpdate(e)}
           />
         </Form.Group>
@@ -34,8 +34,8 @@ const { handleUpdate, handleSubmit } = props;
           <Form.Label>Email:</Form.Label>
           <Form.Control
             type="email"
-            name="email"
-            defaultValue={userdata.Email}
+            name="Email"
+            value={userdata.email}
             onChange={(e) => handleUpdate(e)}
           />
         </Form.Group>
@@ -44,8 +44,8 @@ const { handleUpdate, handleSubmit } = props;
           <Form.Label>Birthday:</Form.Label>
           <Form.Control
             type="date"
-            defaultvalue={userdata.Birthday}
-            name="birthday"
+            name="Birthday"
+            value={userdata.birthday}
             onChange={(e) => handleUpdate(e)}
           />
         </Form.Group>
