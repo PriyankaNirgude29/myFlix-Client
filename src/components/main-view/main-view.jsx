@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { setMovies, setUser } from '../../actions/actions';
@@ -16,13 +16,6 @@ import { ProfileView } from '../profile-view/profile-view';
 
 
 export class MainView extends React.Component {
-//constructor(){ 
-  //  super();
-   // this.state = {
-    //movies: [],
-    //user: null,
-  //};
-//}
 
 componentDidMount(){
   let accessToken = localStorage.getItem("token");
@@ -59,9 +52,10 @@ getMovies(token){
 render() {
     const { movies, user  } = this.props;
     return (
+      <Fragment className="main-view justify-content-center">
     <Router>
       <Menu user={user} />
-      <Row className="main-view justify-content-md-center">
+      <Row className='justify-content-md-center'>
       <Route
             exact
             path="/"
@@ -83,7 +77,7 @@ render() {
             render={() => {
               if (user) return <Redirect to="/" />;
               return (
-                <Col lg={8} md={8}>
+                <Col>
                   <RegistrationView />
                 </Col>
               );
@@ -188,6 +182,10 @@ render() {
 
     </Row>
    </Router>
+     <footer>
+     <div className="p-3 bg-dark text-white">&copy;2022 Priyanka Nirgude</div>
+   </footer>
+   </Fragment>
        );
     }
 
