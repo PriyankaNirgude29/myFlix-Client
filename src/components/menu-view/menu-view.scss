@@ -2,15 +2,11 @@ body {
     background-color: rgb(249, 246, 245) !important;
   }
 .nav_main {
-    background-color: rgba(136, 20, 140, 0.9);
+    background-color: rgba(65, 8, 67, 0.9);
     color: white !important;
     padding: 1rem !important;
-  }
-  
-  .navbar-text {
-    margin-right: 2rem !important;
-    color: white !important;
-  }
+    text-decoration-color: white;
+}
   
   .logo_navbar {
     font-family: 'Lobster', cursive;
