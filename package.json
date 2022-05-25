@@ -6,6 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel",
+    "start:html": "parcel src/index.html",
+    "watch": "parcel watch",
     "build": "parcel build"
   },
   "repository": {
@@ -20,6 +22,7 @@
   "homepage": "https://github.com/PriyankaNirgude29/myFlix-Client#readme",
   "dependencies": {
     "axios": "^0.27.2",
+    "parcel": "^2.0.0-rc.0",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-bootstrap": "^2.3.1",
