@@ -8,7 +8,7 @@
     "start": "parcel",
     "start:html": "parcel src/index.html",
     "watch": "parcel watch",
-    "build": "parcel build"
+    "build:parcel": "parcel build src/index.html --public-url /"
   },
   "repository": {
     "type": "git",
