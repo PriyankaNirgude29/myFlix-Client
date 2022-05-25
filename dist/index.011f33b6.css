@@ -1,0 +1,61 @@
+.registration-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("login-banner.68a47b1e.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("login-banner.68a47b1e.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.card-img-top:hover {
+  cursor: pointer;
+  opacity: 0.92;
+  transition: ease 200ms;
+}
+
+.movie-title {
+  font-size: 16px;
+  font-style: italic;
+  color: rgb(24, 24, 24);
+  font-weight: 700;
+  font-size: 2 rem;
+}
+
+.movie-description {
+  color: rgb(29, 29, 29);
+  font-weight: 300;
+  font-size: 1 rem;
+}
+body {
+  background-color: rgb(249, 246, 245) !important;
+}
+
+.nav_main {
+  background-color: rgba(65, 8, 67, 0.9);
+  color: white !important;
+  padding: 1rem !important;
+  text-decoration-color: white;
+}
+
+.logo_navbar {
+  font-family: "Lobster", cursive;
+  font-size: 4rem !important;
+  margin-left: 2rem !important;
+  color: white !important;
+}
+
+
+/*# sourceMappingURL=index.011f33b6.css.map */
