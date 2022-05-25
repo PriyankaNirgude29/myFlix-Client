@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
-import { Form, Button, Row, Col } from "react-bootstrap";
+import { Form, Button, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import './registration-view.scss';
 
 export function RegistrationView(props) {
   const [ username, setUsername ] = useState('');
@@ -68,9 +69,14 @@ export function RegistrationView(props) {
   };
 
   return (
-    <Row className="d-flex justify-content-center">
-       <Col xs={4} md={4} >
-       <Form className="d-flex flex-column justify-content-between align-items-center border border-black ">
+   
+   <div className="app-container registration-container">
+        <Card className='justify-content-center' 
+        style={{ width: "50vw" }}>
+        <Card.Body>
+          <Card.Title className="fw-bolder">Register</Card.Title>
+  
+         <Form>
            <Form.Group controlId="formUsername">
            <Form.Label>Username:</Form.Label>
            <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} />
@@ -90,8 +96,8 @@ export function RegistrationView(props) {
           <Form.Label>Birthday:</Form.Label>
           <Form.Control type="date" placeholder="Birthdate" onChange={e => setBirthday(e.target.value)} />
           </Form.Group><br></br>
-
-         <Button variant="primary" type="submit" onClick={handleSubmit}>
+          <div className="justify-content-center">
+           <Button variant="primary" type="submit" onClick={handleSubmit}>
              Submit
           </Button>
           <p> Already have an account?</p>
@@ -104,9 +110,11 @@ export function RegistrationView(props) {
                     Sign in
                   </Button>
                 </Link>
+            </div>
        </Form>
-    </Col>
-  </Row>
+       </Card.Body>
+       </Card>
+    </div>
 
   );
 }
