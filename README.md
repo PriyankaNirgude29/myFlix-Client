@@ -38,3 +38,5 @@ To build the client-side for an application called myFlix using React that is ba
 * Contain a mix of class components and function components
 
 ## Links
+
+[Git-link](https://github.com/PriyankaNirgude29/myFlix-Client/tree/branch-ReactRedux)
