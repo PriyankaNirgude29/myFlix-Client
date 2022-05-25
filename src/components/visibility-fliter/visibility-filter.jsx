@@ -9,7 +9,7 @@ function VisibilityFilterInput(props) {
     const { visibilityFilter, setFilter }=props;
   return (
   <Form.Control
-    className='border border-dark'
+    className='border'
     onChange={(e) => setFilter(e.target.value)}
     value={visibilityFilter}
     placeholder="Search Movies"
