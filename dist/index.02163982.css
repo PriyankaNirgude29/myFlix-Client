@@ -1,3 +1,14 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-image: url("login-banner.0a0d7b15.jpg");
+  background-repeat: no-repeat;
+  background-position: 0vmax;
+  background-size: cover;
+}
 .card-img-top:hover {
   cursor: pointer;
   opacity: 0.92;
@@ -22,14 +33,9 @@ body {
 }
 
 .nav_main {
-  background-color: rgba(136, 20, 140, 0.9);
+  background-color: rgba(65, 8, 67, 0.9);
   color: white !important;
   padding: 1rem !important;
-}
-
-.navbar-text {
-  margin-right: 2rem !important;
-  color: white !important;
 }
 
 .logo_navbar {
@@ -40,4 +46,4 @@ body {
 }
 
 
-/*# sourceMappingURL=index.d1a0739e.css.map */
+/*# sourceMappingURL=index.02163982.css.map */
