@@ -15,7 +15,7 @@ import { DirectorView } from '../director-view/director-view';
 import { ProfileView } from '../profile-view/profile-view';
 
 
-export class MainView extends React.Component {
+class MainView extends React.Component {
 
 componentDidMount(){
   let accessToken = localStorage.getItem("token");
@@ -52,7 +52,7 @@ getMovies(token){
 render() {
     const { movies, user  } = this.props;
     return (
-      <Fragment className="main-view justify-content-center">
+      <Fragment>
     <Router>
       <Menu user={user} />
       <Row className='justify-content-md-center'>
