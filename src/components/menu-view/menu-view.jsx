@@ -20,13 +20,13 @@ export function Menu({user}){
             return false;
         }
     }
-    return(
+    return( 
             
                   <Navbar className='nav_main' >
                       <Navbar.Brand  className="logo_navbar" as={Link} to={"/"}>My-Flix</Navbar.Brand>
                       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                       <Navbar.Collapse id="responsive-navbar-nav">
-                  <Nav className="me-auto">
+                  <Nav className="me-auto ">
                       { isAuth() && (  
                       <Nav.Link href={`/users/${user}`}>{user}</Nav.Link>
                       ) }
