@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from "prop-types";
-import { Form, Button, Row, Col } from 'react-bootstrap';
+import { Form, Button, Card } from 'react-bootstrap';
+import './login-view.scss';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
@@ -49,9 +50,12 @@ const validate = () => {
   };
 
   return (
-      <Row className="d-flex justify-content-center">
-        <Col xs={4} md={4} >
-          <Form className="d-flex flex-column justify-content-between align-items-center border border-black ">
+    <div className="app-container login-container">
+        <Card className='justify-content-center' 
+        style={{ width: "30vw" }}>
+        <Card.Body>
+          <Card.Title className="fw-bolder">Login</Card.Title>
+          <Form>
           <Form.Group controlId="formUsername">
           <Form.Label>Username:</Form.Label>
           <Form.Control type="text" placeholder="Username" onChange={e => setUsername(e.target.value)} />
@@ -66,18 +70,18 @@ const validate = () => {
           <div className="mt-2">
             <Button
               variant="primary"
-              className="w-100"
-              type="submit"
+             type="submit"
               onClick={handleSubmit}
             >
               Login
             </Button>
           </div>
-
+ 
           
         </Form>
-      </Col>
-    </Row>
+       </Card.Body>
+       </Card>
+    </div>
   );
 }
 
