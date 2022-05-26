@@ -25181,8 +25181,6 @@ $parcel$ReactRefreshHelpers$cbfc.prelude(module);
 try {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "MainView", ()=>MainView
-);
 var _jsxRuntime = require("react/jsx-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
@@ -25233,7 +25231,6 @@ class MainView extends _reactDefault.default.Component {
     render() {
         const { movies , user  } = this.props;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_react.Fragment, {
-            className: "main-view justify-content-center",
             __source: {
                 fileName: "OneDrive/Desktop/Careerfaundry/MyFlixClient/myFlix-Client/src/components/main-view/main-view.jsx",
                 lineNumber: 55
